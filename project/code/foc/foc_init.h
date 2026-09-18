@@ -8,7 +8,7 @@
 #ifndef FOC_INIT_H
 #define FOC_INIT_H
 
-#include "cy_gpio.h"
+#include "gpio/cy_gpio.h"
 
 /* 返回 GPIO 初始化结果；调用者必须检查返回值。 */
 cy_en_gpio_status_t foc_init(void);
