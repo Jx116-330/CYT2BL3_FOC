@@ -1,0 +1,22 @@
+# IAR and editor generated files
+.vscode/
+project/iar/Debug_m4/
+project/iar/Debug_*/
+
+# Common generated build outputs
+*.o
+*.pbi
+*.pbd
+*.pbw
+*.browse
+*.dep
+*.map
+*.out
+*.hex
+*.bin
+*.elf
+*.crun
+*.dbgdt
+*.ninja
+*.ninja_deps
+*.ninja_log
