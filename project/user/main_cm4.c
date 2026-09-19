@@ -53,10 +53,10 @@ int main(void)
     debug_init();
 
     /*
-     * FOC 第一个可执行步骤：只配置电机 1 的 GPIO 复用。
-     * 此函数不会配置或启动 TCPWM，也不会启动 ADC。
+     * FOC 第一阶段：配置电机 1 的 GPIO 复用和三路 TCPWM PWM 参数。
+     * 初始化结束后 counter 仍然关闭，因此这里不会输出 PWM。
      */
-    if (foc_init() != CY_GPIO_SUCCESS)
+    if (foc_init() != FOC_INIT_SUCCESS)
     {
         /* 初始化失败时停在这里，避免继续执行后续功率级代码。 */
         for(;;)
