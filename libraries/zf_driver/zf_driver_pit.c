@@ -1,38 +1,38 @@
 /*********************************************************************************************************************
-* CYT2BL3 Opensource Library ���� CYT2BL3 ��Դ�⣩��һ�����ڹٷ� SDK �ӿڵĵ�������Դ��
-* Copyright (c) 2022 SEEKFREE ��ɿƼ�
+* CYT2BL3 Opensource Library 即（ CYT2BL3 开源库）是一个基于官方 SDK 接口的第三方开源库
+* Copyright (c) 2022 SEEKFREE 逐飞科技
 *
-* ���ļ��� CYT2BL3 ��Դ���һ����
+* 本文件是 CYT2BL3 开源库的一部分
 *
-* CYT2BL3 ��Դ�� ���������
-* �����Ը���������������ᷢ���� GPL��GNU General Public License���� GNUͨ�ù�������֤��������
-* �� GPL �ĵ�3�棨�� GPL3.0������ѡ��ģ��κκ����İ汾�����·�����/���޸���
+* CYT2BL3 开源库 是免费软件
+* 您可以根据自由软件基金会发布的 GPL（GNU General Public License，即 GNU通用公共许可证）的条款
+* 即 GPL 的第3版（即 GPL3.0）或（您选择的）任何后来的版本，重新发布和/或修改它
 *
-* ����Դ��ķ�����ϣ�����ܷ������ã�����δ�������κεı�֤
-* ����û�������������Ի��ʺ��ض���;�ı�֤
-* ����ϸ����μ� GPL
+* 本开源库的发布是希望它能发挥作用，但并未对其作任何的保证
+* 甚至没有隐含的适销性或适合特定用途的保证
+* 更多细节请参见 GPL
 *
-* ��Ӧ�����յ�����Դ���ͬʱ�յ�һ�� GPL �ĸ���
-* ���û�У������<https://www.gnu.org/licenses/>
+* 您应该在收到本开源库的同时收到一份 GPL 的副本
+* 如果没有，请参阅<https://www.gnu.org/licenses/>
 *
-* ����ע����
-* ����Դ��ʹ�� GPL3.0 ��Դ����֤Э�� ������������Ϊ���İ汾
-* ��������Ӣ�İ��� libraries/doc �ļ����µ� GPL3_permission_statement.txt �ļ���
-* ����֤������ libraries �ļ����� �����ļ����µ� LICENSE �ļ�
-* ��ӭ��λʹ�ò����������� ���޸�����ʱ���뱣����ɿƼ��İ�Ȩ����������������
+* 额外注明：
+* 本开源库使用 GPL3.0 开源许可证协议 以上许可申明为译文版本
+* 许可申明英文版在 libraries/doc 文件夹下的 GPL3_permission_statement.txt 文件中
+* 许可证副本在 libraries 文件夹下 即该文件夹下的 LICENSE 文件
+* 欢迎各位使用并传播本程序 但修改内容时必须保留逐飞科技的版权声明（即本声明）
 *
-* �ļ�����          zf_driver_pit
-* ��˾����          �ɶ���ɿƼ����޹�˾
-* �汾��Ϣ          �鿴 libraries/doc �ļ����� version �ļ� �汾˵��
-* ��������          IAR 9.40.1
-* ����ƽ̨          CYT2BL3
-* ��������          https://seekfree.taobao.com/
+* 文件名称          zf_driver_pit
+* 公司名称          成都逐飞科技有限公司
+* 版本信息          查看 libraries/doc 文件夹内 version 文件 版本说明
+* 开发环境          IAR 9.40.1
+* 适用平台          CYT2BL3
+* 店铺链接          https://seekfree.taobao.com/
 *
-* �޸ļ�¼
-* ����              ����                ��ע
+* 修改记录
+* 日期              作者                备注
 * 2024-1-9       pudding            first version
-* 2024-3-2       pudding            �޸�PITʹ�ܺ���ʧЧ������
-* 2024-5-14      pudding            ����12��PIT�����ж�
+* 2024-3-2       pudding            修复PIT使能函数失效的问题
+* 2024-5-14      pudding            新增12个PIT周期中断
 ********************************************************************************************************************/
 
 #include "sysclk/cy_sysclk.h"
@@ -66,11 +66,11 @@ void (*pit_isr_func[15])() = {  pit0_ch0_isr,  pit0_ch1_isr,  pit0_ch2_isr,
 
 
 //-------------------------------------------------------------------------------------------------------------------
-//  �������      pit�ر�
-//  ����˵��      pit_index        	ѡ��PITģ��
-//  ���ز���      void
-//  ʹ��ʾ��      pit_isr_flag_clear(PIT_CH0); // �ر� TCPWM2 ͨ��0�ļ�ʱ��
-//  ��ע��Ϣ
+//  函数简介      pit关闭
+//  参数说明      pit_index        	选择PIT模块
+//  返回参数      void
+//  使用示例      pit_isr_flag_clear(PIT_CH0); // 关闭 TCPWM2 通道0的计时器
+//  备注信息
 //-------------------------------------------------------------------------------------------------------------------
 void pit_isr_flag_clear (pit_index_enum pit_index)
 {
@@ -85,11 +85,11 @@ void pit_isr_flag_clear (pit_index_enum pit_index)
 }
 
 //-------------------------------------------------------------------------------------------------------------------
-//  �������      ʧ��pit�ж�
-//  ����˵��      pit_index      	ѡ��PITģ��
-//  ���ز���      void
-//  ʹ��ʾ��      pit_disable(PIT_CH0); // ��ֹ TCPWM2 ͨ��0���ж�
-//  ��ע��Ϣ
+//  函数简介      失能pit中断
+//  参数说明      pit_index      	选择PIT模块
+//  返回参数      void
+//  使用示例      pit_disable(PIT_CH0); // 禁止 TCPWM2 通道0的中断
+//  备注信息
 //-------------------------------------------------------------------------------------------------------------------
 void pit_disable (pit_index_enum pit_index)
 {
@@ -104,11 +104,11 @@ void pit_disable (pit_index_enum pit_index)
 }
 
 //-------------------------------------------------------------------------------------------------------------------
-//  �������      ʹ��pit�ж�
-//  ����˵��      pit_index       	ѡ��PITģ��
-//  ���ز���      void
-//  ʹ��ʾ��      pit_enable(PIT_CH0);  // ���� TCPWM2 ͨ��0���ж�
-//  ��ע��Ϣ
+//  函数简介      使能pit中断
+//  参数说明      pit_index       	选择PIT模块
+//  返回参数      void
+//  使用示例      pit_enable(PIT_CH0);  // 开启 TCPWM2 通道0的中断
+//  备注信息
 //-------------------------------------------------------------------------------------------------------------------
 void pit_enable (pit_index_enum pit_index)
 {
@@ -127,10 +127,10 @@ void pit_enable (pit_index_enum pit_index)
 }
 
 //-------------------------------------------------------------------------------------------------------------------
-//  �������      ��ֹ����pit�ж�
-//  ���ز���      void
-//  ʹ��ʾ��      pit_all_close();
-//  ��ע��Ϣ
+//  函数简介      禁止所有pit中断
+//  返回参数      void
+//  使用示例      pit_all_close();
+//  备注信息
 //-------------------------------------------------------------------------------------------------------------------
 void pit_all_close (void)
 {
@@ -153,12 +153,12 @@ void pit_all_close (void)
 }
 
 //-------------------------------------------------------------------------------------------------------------------
-//  �������      pit��ʼ��
-//  ����˵��      pit_index       	ѡ��PITģ��
-//  ����˵��      time            	����ʱ��
-//  ���ز���      void
-//  ʹ��ʾ��      pit_init(PIT_CH0, 5000);      // ���������ж�5000us
-//  ��ע��Ϣ      ��ʹ��.h�ļ��� ��ʱ�䵥λ�ĺ궨�庯�� 
+//  函数简介      pit初始化
+//  参数说明      pit_index       	选择PIT模块
+//  参数说明      time            	周期时间
+//  返回参数      void
+//  使用示例      pit_init(PIT_CH0, 5000);      // 设置周期中断5000us
+//  备注信息      请使用.h文件中 带时间单位的宏定义函数 
 //-------------------------------------------------------------------------------------------------------------------
 void pit_init (pit_index_enum pit_index, uint32 time)
 {
@@ -169,7 +169,7 @@ void pit_init (pit_index_enum pit_index, uint32 time)
     if(pit_index < PIT_CH10)
     {
         Cy_SysClk_PeriphAssignDivider((en_clk_dst_t)((uint32)pit_index + (uint32)PCLK_TCPWM0_CLOCKS512), (cy_en_divider_types_t)CY_SYSCLK_DIV_16_BIT, 0ul);
-        Cy_SysClk_PeriphSetDivider((cy_en_divider_types_t)CY_SYSCLK_DIV_16_BIT, 0ul, 9u); // 80Mhzʱ�ӱ�10��ƵΪ8Mhz
+        Cy_SysClk_PeriphSetDivider((cy_en_divider_types_t)CY_SYSCLK_DIV_16_BIT, 0ul, 9u); // 80Mhz时钟被10分频为8Mhz
         Cy_SysClk_PeriphEnableDivider( (cy_en_divider_types_t)CY_SYSCLK_DIV_16_BIT, 0ul);
         
         irq_cfg.sysIntSrc  = (cy_en_intr_t)((uint32)tcpwm_0_interrupts_512_IRQn + (uint32)pit_index); 
@@ -177,7 +177,7 @@ void pit_init (pit_index_enum pit_index, uint32 time)
         irq_cfg.isEnabled  = true                                          ;
         interrupt_init(&irq_cfg, pit_isr_func[pit_index], 3)                ;
         
-        pit_config.period             = time * 8                            ;        // pit���ڼ���
+        pit_config.period             = time * 8                            ;        // pit周期计算
         pit_config.clockPrescaler     = CY_TCPWM_PRESCALER_DIVBY_1         ;
         pit_config.runMode            = CY_TCPWM_COUNTER_CONTINUOUS        ; 
         pit_config.countDirection     = CY_TCPWM_COUNTER_COUNT_UP          ;
@@ -195,7 +195,7 @@ void pit_init (pit_index_enum pit_index, uint32 time)
     else
     {
         Cy_SysClk_PeriphAssignDivider((en_clk_dst_t)((uint32)(pit_index - 3) + (uint32)PCLK_TCPWM0_CLOCKS256), (cy_en_divider_types_t)CY_SYSCLK_DIV_16_BIT, 0ul);
-        Cy_SysClk_PeriphSetDivider((cy_en_divider_types_t)CY_SYSCLK_DIV_16_BIT, 0ul, 9u); // 80Mhzʱ�ӱ�10��ƵΪ8Mhz
+        Cy_SysClk_PeriphSetDivider((cy_en_divider_types_t)CY_SYSCLK_DIV_16_BIT, 0ul, 9u); // 80Mhz时钟被10分频为8Mhz
         Cy_SysClk_PeriphEnableDivider((cy_en_divider_types_t)CY_SYSCLK_DIV_16_BIT, 0ul);
         
         irq_cfg.sysIntSrc  = (cy_en_intr_t)((uint32)tcpwm_0_interrupts_256_IRQn + (uint32)(pit_index - 3)); 
@@ -212,7 +212,7 @@ void pit_init (pit_index_enum pit_index, uint32 time)
                 period_count /= 2;
             }
         }
-        pit_config.period             = period_count                       ;        // pit���ڼ���
+        pit_config.period             = period_count                       ;        // pit周期计算
         pit_config.clockPrescaler     = (cy_en_tcpwm_clk_prescalers_t)div_num ;
         pit_config.runMode            = CY_TCPWM_COUNTER_CONTINUOUS        ; 
         pit_config.countDirection     = CY_TCPWM_COUNTER_COUNT_UP          ;

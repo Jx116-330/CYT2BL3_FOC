@@ -1,49 +1,49 @@
 /*********************************************************************************************************************
-* CYT2BL3 Opensource Library ���� CYT2BL3 ��Դ�⣩��һ�����ڹٷ� SDK �ӿڵĵ�������Դ��
-* Copyright (c) 2022 SEEKFREE ��ɿƼ�
+* CYT2BL3 Opensource Library 即（ CYT2BL3 开源库）是一个基于官方 SDK 接口的第三方开源库
+* Copyright (c) 2022 SEEKFREE 逐飞科技
 *
-* ���ļ��� CYT2BL3 ��Դ���һ����
+* 本文件是 CYT2BL3 开源库的一部分
 *
-* CYT2BL3 ��Դ�� ���������
-* �����Ը���������������ᷢ���� GPL��GNU General Public License���� GNUͨ�ù�������֤��������
-* �� GPL �ĵ�3�棨�� GPL3.0������ѡ��ģ��κκ����İ汾�����·�����/���޸���
+* CYT2BL3 开源库 是免费软件
+* 您可以根据自由软件基金会发布的 GPL（GNU General Public License，即 GNU通用公共许可证）的条款
+* 即 GPL 的第3版（即 GPL3.0）或（您选择的）任何后来的版本，重新发布和/或修改它
 *
-* ����Դ��ķ�����ϣ�����ܷ������ã�����δ�������κεı�֤
-* ����û�������������Ի��ʺ��ض���;�ı�֤
-* ����ϸ����μ� GPL
+* 本开源库的发布是希望它能发挥作用，但并未对其作任何的保证
+* 甚至没有隐含的适销性或适合特定用途的保证
+* 更多细节请参见 GPL
 *
-* ��Ӧ�����յ�����Դ���ͬʱ�յ�һ�� GPL �ĸ���
-* ���û�У������<https://www.gnu.org/licenses/>
+* 您应该在收到本开源库的同时收到一份 GPL 的副本
+* 如果没有，请参阅<https://www.gnu.org/licenses/>
 *
-* ����ע����
-* ����Դ��ʹ�� GPL3.0 ��Դ����֤Э�� ������������Ϊ���İ汾
-* ��������Ӣ�İ��� libraries/doc �ļ����µ� GPL3_permission_statement.txt �ļ���
-* ����֤������ libraries �ļ����� �����ļ����µ� LICENSE �ļ�
-* ��ӭ��λʹ�ò����������� ���޸�����ʱ���뱣����ɿƼ��İ�Ȩ����������������
+* 额外注明：
+* 本开源库使用 GPL3.0 开源许可证协议 以上许可申明为译文版本
+* 许可申明英文版在 libraries/doc 文件夹下的 GPL3_permission_statement.txt 文件中
+* 许可证副本在 libraries 文件夹下 即该文件夹下的 LICENSE 文件
+* 欢迎各位使用并传播本程序 但修改内容时必须保留逐飞科技的版权声明（即本声明）
 *
-* �ļ�����          zf_device_menc15a
-* ��˾����          �ɶ���ɿƼ����޹�˾
-* �汾��Ϣ          �鿴 libraries/doc �ļ����� version �ļ� �汾˵��
-* ��������          IAR 9.40.1
-* ����ƽ̨          CYT2BL3
-* ��������          https://seekfree.taobao.com/
+* 文件名称          zf_device_menc15a
+* 公司名称          成都逐飞科技有限公司
+* 版本信息          查看 libraries/doc 文件夹内 version 文件 版本说明
+* 开发环境          IAR 9.40.1
+* 适用平台          CYT2BL3
+* 店铺链接          https://seekfree.taobao.com/
 *
-* �޸ļ�¼
-* ����              ����                ��ע
+* 修改记录
+* 日期              作者                备注
 * 2024-11-19       pudding            first version
 ********************************************************************************************************************/
 /*********************************************************************************************************************
-* ���߶��壺
+* 接线定义：
 *                   ------------------------------------
-*                   ģ��ܽ�            ��Ƭ���ܽ�
-*                   // Ӳ�� SPI ����
-*                   SCL/SPC           �鿴 zf_device_menc15a.h �� MENC15A_SPC_PIN �궨��
-*                   SDA/DSI           �鿴 zf_device_menc15a.h �� MENC15A_SDI_PIN �궨��
-*                   SA0/SDO           �鿴 zf_device_menc15a.h �� MENC15A_SDO_PIN �궨��
-*                   CS                �鿴 zf_device_menc15a.h �� MENC15A_CS_PIN �궨��
-*                   VCC               3.3V��Դ
-*                   GND               ��Դ��
-*                   ������������
+*                   模块管脚            单片机管脚
+*                   // 硬件 SPI 引脚
+*                   SCL/SPC           查看 zf_device_menc15a.h 中 MENC15A_SPC_PIN 宏定义
+*                   SDA/DSI           查看 zf_device_menc15a.h 中 MENC15A_SDI_PIN 宏定义
+*                   SA0/SDO           查看 zf_device_menc15a.h 中 MENC15A_SDO_PIN 宏定义
+*                   CS                查看 zf_device_menc15a.h 中 MENC15A_CS_PIN 宏定义
+*                   VCC               3.3V电源
+*                   GND               电源地
+*                   其余引脚悬空
 *                   ------------------------------------
 ********************************************************************************************************************/
 
@@ -63,13 +63,13 @@ int16 menc15a_absolute_offset_data[2] = {0};
 int16  menc15a_speed_data[2] = {0};
 
 //-------------------------------------------------------------------------------------------------------------------
-// �������     �����������תƫ�� 
-// ����˵��     encoder_max     ����������  ��дʮ��������
-// ����˵��     now_location    ��ǰλ����Ϣ
-// ����˵��     last_location   ��һ�ε�λ����Ϣ
-// ���ز���     int32           �����ƫ��ֵ    
-// ʹ��ʾ��     magnetic_encoder_get_offset();                                  
-// ��ע��Ϣ     
+// 函数简介     计算编码器旋转偏差 
+// 参数说明     encoder_max     编码器精度  填写十进制数据
+// 参数说明     now_location    当前位置信息
+// 参数说明     last_location   上一次的位置信息
+// 返回参数     int32           计算的偏差值    
+// 使用示例     magnetic_encoder_get_offset();                                  
+// 备注信息     
 //-------------------------------------------------------------------------------------------------------------------
 static int32 magnetic_encoder_get_offset (int32 encoder_max, int32 now_location, int32 last_location)
 {
@@ -89,11 +89,11 @@ static int32 magnetic_encoder_get_offset (int32 encoder_max, int32 now_location,
 
 
 //-------------------------------------------------------------------------------------------------------------------
-// �������     ��ȡ MENC15A �ű����� �� ����ֵ �Ƕ�����
-// ����˵��     menc15a_module      �ű����� ģ���
-// ���ز���     uint16              ����ֵ �Ƕ�����       
-// ʹ��ʾ��     menc15a_1_get_absolute_data();                                   
-// ��ע��Ϣ     ִ�иú����󣬿�ֱ��ʹ�÷���ֵ Ҳ����ͨ����ѯ��Ӧ������ȡ���
+// 函数简介     获取 MENC15A 磁编码器 的 绝对值 角度数据
+// 参数说明     menc15a_module      磁编码器 模块号
+// 返回参数     uint16              绝对值 角度数据       
+// 使用示例     menc15a_1_get_absolute_data();                                   
+// 备注信息     执行该函数后，可直接使用返回值 也可以通过查询对应变量获取结果
 //-------------------------------------------------------------------------------------------------------------------
 uint16 menc15a_get_absolute_data(menc15a_module_enum menc15a_module)
 {
@@ -126,11 +126,11 @@ uint16 menc15a_get_absolute_data(menc15a_module_enum menc15a_module)
 }
 
 //-------------------------------------------------------------------------------------------------------------------
-// �������     ��ȡ MENC15A �ű����� �� ת������
-// ����˵��     menc15a_module      �ű����� ģ���
-// ���ز���     int16               ת������(ÿ����ת���� rad/s)       
-// ʹ��ʾ��     menc15a_1_get_speed_data();                                  
-// ��ע��Ϣ     ִ�иú����󣬿�ֱ��ʹ�÷���ֵ Ҳ����ͨ����ѯ��Ӧ������ȡ���
+// 函数简介     获取 MENC15A 磁编码器 的 转速数据
+// 参数说明     menc15a_module      磁编码器 模块号
+// 返回参数     int16               转速数据(每秒旋转弧度 rad/s)       
+// 使用示例     menc15a_1_get_speed_data();                                  
+// 备注信息     执行该函数后，可直接使用返回值 也可以通过查询对应变量获取结果
 //-------------------------------------------------------------------------------------------------------------------
 int16 menc15a_get_speed_data(menc15a_module_enum menc15a_module)
 {
@@ -166,19 +166,19 @@ int16 menc15a_get_speed_data(menc15a_module_enum menc15a_module)
 }
 
 //-------------------------------------------------------------------------------------------------------------------
-// �������     ��ʼ�� MENC15A
-// ����˵��     void
-// ���ز���     uint8           1-��ʼ��ʧ�� 0-��ʼ���ɹ�
-// ʹ��ʾ��     menc15a_init();
-// ��ע��Ϣ
+// 函数简介     初始化 MENC15A
+// 参数说明     void
+// 返回参数     uint8           1-初始化失败 0-初始化成功
+// 使用示例     menc15a_init();
+// 备注信息
 //-------------------------------------------------------------------------------------------------------------------
 uint8 menc15a_init(void)
 {
-    spi_init(MENC15A_1_SPI, SPI_MODE0, MENC15A_1_SPI_SPEED, MENC15A_1_CLK_PIN, MENC15A_1_MOSI_PIN, MENC15A_1_MISO_PIN, SPI_CS_NULL);    // ���� MENC15A-1 �� SPI�˿�
-    gpio_init(MENC15A_1_CS_PIN, GPO, GPIO_HIGH, GPO_PUSH_PULL);                                                                         // ���� MENC15A-1 �� CS�˿�
+    spi_init(MENC15A_1_SPI, SPI_MODE0, MENC15A_1_SPI_SPEED, MENC15A_1_CLK_PIN, MENC15A_1_MOSI_PIN, MENC15A_1_MISO_PIN, SPI_CS_NULL);    // 配置 MENC15A-1 的 SPI端口
+    gpio_init(MENC15A_1_CS_PIN, GPO, GPIO_HIGH, GPO_PUSH_PULL);                                                                         // 配置 MENC15A-1 的 CS端口
     
-    spi_init(MENC15A_2_SPI, SPI_MODE0, MENC15A_2_SPI_SPEED, MENC15A_2_CLK_PIN, MENC15A_2_MOSI_PIN, MENC15A_2_MISO_PIN, SPI_CS_NULL);    // ���� MENC15A-2 �� SPI�˿�
-    gpio_init(MENC15A_2_CS_PIN, GPO, GPIO_HIGH, GPO_PUSH_PULL);                                                                         // ���� MENC15A-2 �� CS�˿�
+    spi_init(MENC15A_2_SPI, SPI_MODE0, MENC15A_2_SPI_SPEED, MENC15A_2_CLK_PIN, MENC15A_2_MOSI_PIN, MENC15A_2_MISO_PIN, SPI_CS_NULL);    // 配置 MENC15A-2 的 SPI端口
+    gpio_init(MENC15A_2_CS_PIN, GPO, GPIO_HIGH, GPO_PUSH_PULL);                                                                         // 配置 MENC15A-2 的 CS端口
     
     return 0;
 }

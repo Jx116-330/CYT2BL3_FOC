@@ -2,6 +2,8 @@
 .vscode/
 project/iar/Debug_m4/
 project/iar/Debug_*/
+project/iar/settings/
+project/iar/project_config/settings/
 
 # Common generated build outputs
 *.o

@@ -1,35 +1,35 @@
 /*********************************************************************************************************************
-* CYT2BL3 Opensource Library ¼´£¨ CYT2BL3 ¿ªÔ´¿â£©ÊÇÒ»¸ö»ùÓÚ¹Ù·½ SDK ½Ó¿ÚµÄµÚÈı·½¿ªÔ´¿â
-* Copyright (c) 2022 SEEKFREE Öğ·É¿Æ¼¼
+* CYT2BL3 Opensource Library å³ï¼ˆ CYT2BL3 å¼€æºåº“ï¼‰æ˜¯ä¸€ä¸ªåŸºäºå®˜æ–¹ SDK æ¥å£çš„ç¬¬ä¸‰æ–¹å¼€æºåº“
+* Copyright (c) 2022 SEEKFREE é€é£ç§‘æŠ€
 *
-* ±¾ÎÄ¼şÊÇ CYT2BL3 ¿ªÔ´¿âµÄÒ»²¿·Ö
+* æœ¬æ–‡ä»¶æ˜¯ CYT2BL3 å¼€æºåº“çš„ä¸€éƒ¨åˆ†
 *
-* CYT2BL3 ¿ªÔ´¿â ÊÇÃâ·ÑÈí¼ş
-* Äú¿ÉÒÔ¸ù¾İ×ÔÓÉÈí¼ş»ù½ğ»á·¢²¼µÄ GPL£¨GNU General Public License£¬¼´ GNUÍ¨ÓÃ¹«¹²Ğí¿ÉÖ¤£©µÄÌõ¿î
-* ¼´ GPL µÄµÚ3°æ£¨¼´ GPL3.0£©»ò£¨ÄúÑ¡ÔñµÄ£©ÈÎºÎºóÀ´µÄ°æ±¾£¬ÖØĞÂ·¢²¼ºÍ/»òĞŞ¸ÄËü
+* CYT2BL3 å¼€æºåº“ æ˜¯å…è´¹è½¯ä»¶
+* æ‚¨å¯ä»¥æ ¹æ®è‡ªç”±è½¯ä»¶åŸºé‡‘ä¼šå‘å¸ƒçš„ GPLï¼ˆGNU General Public Licenseï¼Œå³ GNUé€šç”¨å…¬å…±è®¸å¯è¯ï¼‰çš„æ¡æ¬¾
+* å³ GPL çš„ç¬¬3ç‰ˆï¼ˆå³ GPL3.0ï¼‰æˆ–ï¼ˆæ‚¨é€‰æ‹©çš„ï¼‰ä»»ä½•åæ¥çš„ç‰ˆæœ¬ï¼Œé‡æ–°å‘å¸ƒå’Œ/æˆ–ä¿®æ”¹å®ƒ
 *
-* ±¾¿ªÔ´¿âµÄ·¢²¼ÊÇÏ£ÍûËüÄÜ·¢»Ó×÷ÓÃ£¬µ«²¢Î´¶ÔÆä×÷ÈÎºÎµÄ±£Ö¤
-* ÉõÖÁÃ»ÓĞÒşº¬µÄÊÊÏúĞÔ»òÊÊºÏÌØ¶¨ÓÃÍ¾µÄ±£Ö¤
-* ¸ü¶àÏ¸½ÚÇë²Î¼û GPL
+* æœ¬å¼€æºåº“çš„å‘å¸ƒæ˜¯å¸Œæœ›å®ƒèƒ½å‘æŒ¥ä½œç”¨ï¼Œä½†å¹¶æœªå¯¹å…¶ä½œä»»ä½•çš„ä¿è¯
+* ç”šè‡³æ²¡æœ‰éšå«çš„é€‚é”€æ€§æˆ–é€‚åˆç‰¹å®šç”¨é€”çš„ä¿è¯
+* æ›´å¤šç»†èŠ‚è¯·å‚è§ GPL
 *
-* ÄúÓ¦¸ÃÔÚÊÕµ½±¾¿ªÔ´¿âµÄÍ¬Ê±ÊÕµ½Ò»·İ GPL µÄ¸±±¾
-* Èç¹ûÃ»ÓĞ£¬Çë²ÎÔÄ<https://www.gnu.org/licenses/>
+* æ‚¨åº”è¯¥åœ¨æ”¶åˆ°æœ¬å¼€æºåº“çš„åŒæ—¶æ”¶åˆ°ä¸€ä»½ GPL çš„å‰¯æœ¬
+* å¦‚æœæ²¡æœ‰ï¼Œè¯·å‚é˜…<https://www.gnu.org/licenses/>
 *
-* ¶îÍâ×¢Ã÷£º
-* ±¾¿ªÔ´¿âÊ¹ÓÃ GPL3.0 ¿ªÔ´Ğí¿ÉÖ¤Ğ­Òé ÒÔÉÏĞí¿ÉÉêÃ÷ÎªÒëÎÄ°æ±¾
-* Ğí¿ÉÉêÃ÷Ó¢ÎÄ°æÔÚ libraries/doc ÎÄ¼ş¼ĞÏÂµÄ GPL3_permission_statement.txt ÎÄ¼şÖĞ
-* Ğí¿ÉÖ¤¸±±¾ÔÚ libraries ÎÄ¼ş¼ĞÏÂ ¼´¸ÃÎÄ¼ş¼ĞÏÂµÄ LICENSE ÎÄ¼ş
-* »¶Ó­¸÷Î»Ê¹ÓÃ²¢´«²¥±¾³ÌĞò µ«ĞŞ¸ÄÄÚÈİÊ±±ØĞë±£ÁôÖğ·É¿Æ¼¼µÄ°æÈ¨ÉùÃ÷£¨¼´±¾ÉùÃ÷£©
+* é¢å¤–æ³¨æ˜ï¼š
+* æœ¬å¼€æºåº“ä½¿ç”¨ GPL3.0 å¼€æºè®¸å¯è¯åè®® ä»¥ä¸Šè®¸å¯ç”³æ˜ä¸ºè¯‘æ–‡ç‰ˆæœ¬
+* è®¸å¯ç”³æ˜è‹±æ–‡ç‰ˆåœ¨ libraries/doc æ–‡ä»¶å¤¹ä¸‹çš„ GPL3_permission_statement.txt æ–‡ä»¶ä¸­
+* è®¸å¯è¯å‰¯æœ¬åœ¨ libraries æ–‡ä»¶å¤¹ä¸‹ å³è¯¥æ–‡ä»¶å¤¹ä¸‹çš„ LICENSE æ–‡ä»¶
+* æ¬¢è¿å„ä½ä½¿ç”¨å¹¶ä¼ æ’­æœ¬ç¨‹åº ä½†ä¿®æ”¹å†…å®¹æ—¶å¿…é¡»ä¿ç•™é€é£ç§‘æŠ€çš„ç‰ˆæƒå£°æ˜ï¼ˆå³æœ¬å£°æ˜ï¼‰
 *
-* ÎÄ¼şÃû³Æ          zf_common_typedef
-* ¹«Ë¾Ãû³Æ          ³É¶¼Öğ·É¿Æ¼¼ÓĞÏŞ¹«Ë¾
-* °æ±¾ĞÅÏ¢          ²é¿´ libraries/doc ÎÄ¼ş¼ĞÄÚ version ÎÄ¼ş °æ±¾ËµÃ÷
-* ¿ª·¢»·¾³          IAR 9.40.1
-* ÊÊÓÃÆ½Ì¨          CYT2BL3
-* µêÆÌÁ´½Ó          https://seekfree.taobao.com/
+* æ–‡ä»¶åç§°          zf_common_typedef
+* å…¬å¸åç§°          æˆéƒ½é€é£ç§‘æŠ€æœ‰é™å…¬å¸
+* ç‰ˆæœ¬ä¿¡æ¯          æŸ¥çœ‹ libraries/doc æ–‡ä»¶å¤¹å†… version æ–‡ä»¶ ç‰ˆæœ¬è¯´æ˜
+* å¼€å‘ç¯å¢ƒ          IAR 9.40.1
+* é€‚ç”¨å¹³å°          CYT2BL3
+* åº—é“ºé“¾æ¥          https://seekfree.taobao.com/
 *
-* ĞŞ¸Ä¼ÇÂ¼
-* ÈÕÆÚ              ×÷Õß                ±¸×¢
+* ä¿®æ”¹è®°å½•
+* æ—¥æœŸ              ä½œè€…                å¤‡æ³¨
 * 2024-1-4       pudding            first version
 ********************************************************************************************************************/
 
@@ -43,32 +43,32 @@
 #include "string.h"
 #include "stdlib.h"
 
-//=================================================== ÀàĞÍ¶¨Òå ===================================================
+//=================================================== ç±»å‹å®šä¹‰ ===================================================
 
-//#define COMPATIBLE_WITH_OLDER_VERSIONS                                       	// ¼æÈİ¾É°æ¿ªÔ´¿â½Ó¿Ú
-#define USE_ZF_TYPEDEF      (1)                                                 // ÊÇ·ñÆôÓÃÀàĞÍ¶¨ÒåÉêÃ÷
+//#define COMPATIBLE_WITH_OLDER_VERSIONS                                       	// å…¼å®¹æ—§ç‰ˆå¼€æºåº“æ¥å£
+#define USE_ZF_TYPEDEF      (1)                                                 // æ˜¯å¦å¯ç”¨ç±»å‹å®šä¹‰ç”³æ˜
 #if USE_ZF_TYPEDEF
-// Êı¾İÀàĞÍÉùÃ÷
-// ¾¡Á¿Ê¹ÓÃ stdint.h ¶¨ÒåµÄÀàĞÍÃû³Æ ±ÜÃâ³åÍ» ÕâÀï¿ÉÒÔ²Ã¼ô
-typedef unsigned char       uint8;                                              // ÎŞ·ûºÅ  8 bits
-typedef unsigned short int  uint16;                                             // ÎŞ·ûºÅ 16 bits
-typedef unsigned int        uint32;                                             // ÎŞ·ûºÅ 32 bits
-typedef unsigned long long  uint64;                                             // ÎŞ·ûºÅ 64 bits
+// æ•°æ®ç±»å‹å£°æ˜
+// å°½é‡ä½¿ç”¨ stdint.h å®šä¹‰çš„ç±»å‹åç§° é¿å…å†²çª è¿™é‡Œå¯ä»¥è£å‰ª
+typedef unsigned char       uint8;                                              // æ— ç¬¦å·  8 bits
+typedef unsigned short int  uint16;                                             // æ— ç¬¦å· 16 bits
+typedef unsigned int        uint32;                                             // æ— ç¬¦å· 32 bits
+typedef unsigned long long  uint64;                                             // æ— ç¬¦å· 64 bits
 
-typedef signed char         int8;                                               // ÓĞ·ûºÅ  8 bits
-typedef signed short int    int16;                                              // ÓĞ·ûºÅ 16 bits
-typedef signed int          int32;                                              // ÓĞ·ûºÅ 32 bits
-typedef signed long long    int64;                                              // ÓĞ·ûºÅ 64 bits
+typedef signed char         int8;                                               // æœ‰ç¬¦å·  8 bits
+typedef signed short int    int16;                                              // æœ‰ç¬¦å· 16 bits
+typedef signed int          int32;                                              // æœ‰ç¬¦å· 32 bits
+typedef signed long long    int64;                                              // æœ‰ç¬¦å· 64 bits
 
-typedef volatile uint8      vuint8;                                             // Ò×±äĞÔĞŞÊÎ ÎŞ·ûºÅ  8 bits
-typedef volatile uint16     vuint16;                                            // Ò×±äĞÔĞŞÊÎ ÎŞ·ûºÅ 16 bits
-typedef volatile uint32     vuint32;                                            // Ò×±äĞÔĞŞÊÎ ÎŞ·ûºÅ 32 bits
-typedef volatile uint64     vuint64;                                            // Ò×±äĞÔĞŞÊÎ ÎŞ·ûºÅ 64 bits
+typedef volatile uint8      vuint8;                                             // æ˜“å˜æ€§ä¿®é¥° æ— ç¬¦å·  8 bits
+typedef volatile uint16     vuint16;                                            // æ˜“å˜æ€§ä¿®é¥° æ— ç¬¦å· 16 bits
+typedef volatile uint32     vuint32;                                            // æ˜“å˜æ€§ä¿®é¥° æ— ç¬¦å· 32 bits
+typedef volatile uint64     vuint64;                                            // æ˜“å˜æ€§ä¿®é¥° æ— ç¬¦å· 64 bits
 
-typedef volatile int8       vint8;                                              // Ò×±äĞÔĞŞÊÎ ÓĞ·ûºÅ  8 bits
-typedef volatile int16      vint16;                                             // Ò×±äĞÔĞŞÊÎ ÓĞ·ûºÅ 16 bits
-typedef volatile int32      vint32;                                             // Ò×±äĞÔĞŞÊÎ ÓĞ·ûºÅ 32 bits
-typedef volatile int64      vint64;                                             // Ò×±äĞÔĞŞÊÎ ÓĞ·ûºÅ 64 bits
+typedef volatile int8       vint8;                                              // æ˜“å˜æ€§ä¿®é¥° æœ‰ç¬¦å·  8 bits
+typedef volatile int16      vint16;                                             // æ˜“å˜æ€§ä¿®é¥° æœ‰ç¬¦å· 16 bits
+typedef volatile int32      vint32;                                             // æ˜“å˜æ€§ä¿®é¥° æœ‰ç¬¦å· 32 bits
+typedef volatile int64      vint64;                                             // æ˜“å˜æ€§ä¿®é¥° æœ‰ç¬¦å· 64 bits
 #endif
 
 #define ZF_ENABLE       (1)
@@ -78,6 +78,6 @@ typedef volatile int64      vint64;                                             
 #define ZF_FALSE        (0)
 
 #define ZF_WEAK         __attribute__((weak))
-//=================================================== ÀàĞÍ¶¨Òå ===================================================
+//=================================================== ç±»å‹å®šä¹‰ ===================================================
 
 #endif

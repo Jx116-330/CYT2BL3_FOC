@@ -1,44 +1,44 @@
 /*********************************************************************************************************************
-* CYT2BL3 Opensource Library ���� CYT2BL3 ��Դ�⣩��һ�����ڹٷ� SDK �ӿڵĵ�������Դ��
-* Copyright (c) 2022 SEEKFREE ��ɿƼ�
+* CYT2BL3 Opensource Library 即（ CYT2BL3 开源库）是一个基于官方 SDK 接口的第三方开源库
+* Copyright (c) 2022 SEEKFREE 逐飞科技
 *
-* ���ļ��� CYT2BL3 ��Դ���һ����
+* 本文件是 CYT2BL3 开源库的一部分
 *
-* CYT2BL3 ��Դ�� ���������
-* �����Ը���������������ᷢ���� GPL��GNU General Public License���� GNUͨ�ù�������֤��������
-* �� GPL �ĵ�3�棨�� GPL3.0������ѡ��ģ��κκ����İ汾�����·�����/���޸���
+* CYT2BL3 开源库 是免费软件
+* 您可以根据自由软件基金会发布的 GPL（GNU General Public License，即 GNU通用公共许可证）的条款
+* 即 GPL 的第3版（即 GPL3.0）或（您选择的）任何后来的版本，重新发布和/或修改它
 *
-* ����Դ��ķ�����ϣ�����ܷ������ã�����δ�������κεı�֤
-* ����û�������������Ի��ʺ��ض���;�ı�֤
-* ����ϸ����μ� GPL
+* 本开源库的发布是希望它能发挥作用，但并未对其作任何的保证
+* 甚至没有隐含的适销性或适合特定用途的保证
+* 更多细节请参见 GPL
 *
-* ��Ӧ�����յ�����Դ���ͬʱ�յ�һ�� GPL �ĸ���
-* ���û�У������<https://www.gnu.org/licenses/>
+* 您应该在收到本开源库的同时收到一份 GPL 的副本
+* 如果没有，请参阅<https://www.gnu.org/licenses/>
 *
-* ����ע����
-* ����Դ��ʹ�� GPL3.0 ��Դ����֤Э�� ������������Ϊ���İ汾
-* ��������Ӣ�İ��� libraries/doc �ļ����µ� GPL3_permission_statement.txt �ļ���
-* ����֤������ libraries �ļ����� �����ļ����µ� LICENSE �ļ�
-* ��ӭ��λʹ�ò����������� ���޸�����ʱ���뱣����ɿƼ��İ�Ȩ����������������
+* 额外注明：
+* 本开源库使用 GPL3.0 开源许可证协议 以上许可申明为译文版本
+* 许可申明英文版在 libraries/doc 文件夹下的 GPL3_permission_statement.txt 文件中
+* 许可证副本在 libraries 文件夹下 即该文件夹下的 LICENSE 文件
+* 欢迎各位使用并传播本程序 但修改内容时必须保留逐飞科技的版权声明（即本声明）
 *
-* �ļ�����          zf_device_uart_receiver
-* ��˾����          �ɶ���ɿƼ����޹�˾
-* �汾��Ϣ          �鿴 libraries/doc �ļ����� version �ļ� �汾˵��
-* ��������          IAR 9.40.1
-* ����ƽ̨          CYT2BL3
-* ��������          https://seekfree.taobao.com/
+* 文件名称          zf_device_uart_receiver
+* 公司名称          成都逐飞科技有限公司
+* 版本信息          查看 libraries/doc 文件夹内 version 文件 版本说明
+* 开发环境          IAR 9.40.1
+* 适用平台          CYT2BL3
+* 店铺链接          https://seekfree.taobao.com/
 *
-* �޸ļ�¼
-* ����              ����                ��ע
+* 修改记录
+* 日期              作者                备注
 * 2024-01-24       pudding           first version
 ********************************************************************************************************************/
 /*********************************************************************************************************************
-* ���߶��壺
+* 接线定义：
 *                   ------------------------------------
-*                   ģ��ܽ�            ��Ƭ���ܽ�
-*                   TXD               �鿴 zf_device_uart_receiver.h �� UART_RECEVIER_RX_PIN �궨��
-*                   GND               ��Դ��
-*                   5V                5V��Դ
+*                   模块管脚            单片机管脚
+*                   TXD               查看 zf_device_uart_receiver.h 中 UART_RECEVIER_RX_PIN 宏定义
+*                   GND               电源地
+*                   5V                5V电源
 *                   ------------------------------------
 ********************************************************************************************************************/
 #ifndef _zf_device_uart_receiver_h
@@ -46,27 +46,27 @@
                                   
 #include "zf_common_typedef.h"    
                                   
-#define UART_RECEVIER_UART_INDEX            (UART_2)              // ���崮�ڽ��ջ�ʹ�õĴ���                               
-#define UART_RECEVIER_TX_PIN                (UART2_RX_P07_0)    // ң�������ջ�û��������ţ������ڴ��ڳ�ʼ��ʱռλʹ��      
-#define UART_RECEVIER_RX_PIN                (UART2_TX_P07_1)    // ���ڽ��ջ���TX���� ���ӵ�Ƭ����RX����                    
-#define UART_RECEVIER_COUNTER               (TC_TIME2_CH2)      // ����ң�������ܼ��������ͨ��                             
-#define SBUS_UART_BAUDRATE                  (100000)            // ָ�� SBUS ������ʹ�õĵĴ��ڲ����� (�û������޸�)         
-#define UART_RECEVIER_CHANNEL_NUM           ( 6 )               // ����ң����ͨ������ (�û������޸�)
+#define UART_RECEVIER_UART_INDEX            (UART_2)              // 定义串口接收机使用的串口                               
+#define UART_RECEVIER_TX_PIN                (UART2_RX_P07_0)    // 遥控器接收机没有这个引脚，仅用于串口初始化时占位使用      
+#define UART_RECEVIER_RX_PIN                (UART2_TX_P07_1)    // 串口接收机的TX引脚 连接单片机的RX引脚                    
+#define UART_RECEVIER_COUNTER               (TC_TIME2_CH2)      // 定义遥控器接受间隔计数器通道                             
+#define SBUS_UART_BAUDRATE                  (100000)            // 指定 SBUS 串口所使用的的串口波特率 (用户不可修改)         
+#define UART_RECEVIER_CHANNEL_NUM           ( 6 )               // 定义遥控器通道数量 (用户不可修改)
 
-#define REV_DATA_LEN                        ( 25   )            // SBUS֡��
-#define FRAME_STAR                          ( 0X0F )            // ֡ͷ��Ϣ
-#define FRAME_END                           ( 0X00 )            // ֡β��Ϣ
-#define SBUS_NORMAL_STATE                   ( 0X03 )            // ����״̬
-#define SBUS_ABNORMAL_STATE                 ( 0X0F )            // ʧ��״̬
+#define REV_DATA_LEN                        ( 25   )            // SBUS帧长
+#define FRAME_STAR                          ( 0X0F )            // 帧头信息
+#define FRAME_END                           ( 0X00 )            // 帧尾信息
+#define SBUS_NORMAL_STATE                   ( 0X03 )            // 正常状态
+#define SBUS_ABNORMAL_STATE                 ( 0X0F )            // 失控状态
 
 typedef struct
 {
-    uint16 channel[UART_RECEVIER_CHANNEL_NUM];                  // CH1-CH6ͨ������
-    uint8  state;                                               // ң����״̬(1��ʾ�����������ʾʧ��)
-    uint8  finsh_flag;                                          // 1����ʾ�ɹ����յ�һ֡ң��������
+    uint16 channel[UART_RECEVIER_CHANNEL_NUM];                  // CH1-CH6通道数据
+    uint8  state;                                               // 遥控器状态(1表示正常，否则表示失控)
+    uint8  finsh_flag;                                          // 1：表示成功接收到一帧遥控器数据
 }uart_receiver_struct;
 
-extern uart_receiver_struct uart_receiver;                      // ���ڽ��ջ�ͨ��������״̬
+extern uart_receiver_struct uart_receiver;                      // 串口接收机通道数据与状态
 
 void uart_receiver_init(void);
 

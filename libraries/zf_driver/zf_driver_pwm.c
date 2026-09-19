@@ -1,37 +1,37 @@
 /*********************************************************************************************************************
-* CYT2BL3 Opensource Library ���� CYT2BL3 ��Դ�⣩��һ�����ڹٷ� SDK �ӿڵĵ�������Դ��
-* Copyright (c) 2022 SEEKFREE ��ɿƼ�
+* CYT2BL3 Opensource Library 即（ CYT2BL3 开源库）是一个基于官方 SDK 接口的第三方开源库
+* Copyright (c) 2022 SEEKFREE 逐飞科技
 *
-* ���ļ��� CYT2BL3 ��Դ���һ����
+* 本文件是 CYT2BL3 开源库的一部分
 *
-* CYT2BL3 ��Դ�� ���������
-* �����Ը���������������ᷢ���� GPL��GNU General Public License���� GNUͨ�ù�������֤��������
-* �� GPL �ĵ�3�棨�� GPL3.0������ѡ��ģ��κκ����İ汾�����·�����/���޸���
+* CYT2BL3 开源库 是免费软件
+* 您可以根据自由软件基金会发布的 GPL（GNU General Public License，即 GNU通用公共许可证）的条款
+* 即 GPL 的第3版（即 GPL3.0）或（您选择的）任何后来的版本，重新发布和/或修改它
 *
-* ����Դ��ķ�����ϣ�����ܷ������ã�����δ�������κεı�֤
-* ����û�������������Ի��ʺ��ض���;�ı�֤
-* ����ϸ����μ� GPL
+* 本开源库的发布是希望它能发挥作用，但并未对其作任何的保证
+* 甚至没有隐含的适销性或适合特定用途的保证
+* 更多细节请参见 GPL
 *
-* ��Ӧ�����յ�����Դ���ͬʱ�յ�һ�� GPL �ĸ���
-* ���û�У������<https://www.gnu.org/licenses/>
+* 您应该在收到本开源库的同时收到一份 GPL 的副本
+* 如果没有，请参阅<https://www.gnu.org/licenses/>
 *
-* ����ע����
-* ����Դ��ʹ�� GPL3.0 ��Դ����֤Э�� ������������Ϊ���İ汾
-* ��������Ӣ�İ��� libraries/doc �ļ����µ� GPL3_permission_statement.txt �ļ���
-* ����֤������ libraries �ļ����� �����ļ����µ� LICENSE �ļ�
-* ��ӭ��λʹ�ò����������� ���޸�����ʱ���뱣����ɿƼ��İ�Ȩ����������������
+* 额外注明：
+* 本开源库使用 GPL3.0 开源许可证协议 以上许可申明为译文版本
+* 许可申明英文版在 libraries/doc 文件夹下的 GPL3_permission_statement.txt 文件中
+* 许可证副本在 libraries 文件夹下 即该文件夹下的 LICENSE 文件
+* 欢迎各位使用并传播本程序 但修改内容时必须保留逐飞科技的版权声明（即本声明）
 *
-* �ļ�����          zf_driver_pwm
-* ��˾����          �ɶ���ɿƼ����޹�˾
-* �汾��Ϣ          �鿴 libraries/doc �ļ����� version �ļ� �汾˵��
-* ��������          IAR 9.40.1
-* ����ƽ̨          CYT2BL3
-* ��������          https://seekfree.taobao.com/
+* 文件名称          zf_driver_pwm
+* 公司名称          成都逐飞科技有限公司
+* 版本信息          查看 libraries/doc 文件夹内 version 文件 版本说明
+* 开发环境          IAR 9.40.1
+* 适用平台          CYT2BL3
+* 店铺链接          https://seekfree.taobao.com/
 *
-* �޸ļ�¼
-* ����              ����                ��ע
+* 修改记录
+* 日期              作者                备注
 * 2024-1-8       pudding            first version
-* 2024-3-2       pudding            �޸����ռ�ձȸ�����Ч��bug
+* 2024-3-2       pudding            修复最大占空比更改无效的bug
 ********************************************************************************************************************/
 
 #include "sysclk/cy_sysclk.h"
@@ -42,7 +42,7 @@
 #include "zf_driver_pwm.h"
 
 
-#define PWM_CLK_FREQ       (CY_INITIAL_TARGET_PERI_FREQ / 10)                            // TCPWMģ��ʱ�� Ĭ��8M
+#define PWM_CLK_FREQ       (CY_INITIAL_TARGET_PERI_FREQ / 10)                            // TCPWM模块时钟 默认8M
 
 //cyhal_pwm_t pwm_obj[TCPWM_CH_NUM];
 //uint32 pwm_freq_save[TCPWM_CH_NUM];
@@ -51,10 +51,10 @@ static uint32 pwm_duty_save[TCPWM_CH_NUM];
 
 
 //-------------------------------------------------------------------------------------------------------------------
-//  �������     ��ȡ�˿ڲ���
-//  ���ز���     gpio_pin_enum
-//  ʹ��ʾ��     get_pwm_pin(TCPWM_CH00_P03_1);
-//  ��ע��Ϣ     �ڲ�����
+//  函数简介     获取端口参数
+//  返回参数     gpio_pin_enum
+//  使用示例     get_pwm_pin(TCPWM_CH00_P03_1);
+//  备注信息     内部调用
 //-------------------------------------------------------------------------------------------------------------------
 static gpio_pin_enum get_pwm_pin (pwm_channel_enum pwm_channel)
 {
@@ -101,10 +101,10 @@ static gpio_pin_enum get_pwm_pin (pwm_channel_enum pwm_channel)
 }
 
 //-------------------------------------------------------------------------------------------------------------------
-//  �������     ��ȡ�˿ڲ���
-//  ���ز���     gpio_pin_enum
-//  ʹ��ʾ��     get_pwm_pin(TCPWM_CH00_P03_1);
-//  ��ע��Ϣ     �ڲ�����
+//  函数简介     获取端口参数
+//  返回参数     gpio_pin_enum
+//  使用示例     get_pwm_pin(TCPWM_CH00_P03_1);
+//  备注信息     内部调用
 //-------------------------------------------------------------------------------------------------------------------
 static en_hsiom_sel_t get_pwm_pin_hsiom (pwm_channel_enum pwm_channel)
 {
@@ -149,10 +149,10 @@ static en_hsiom_sel_t get_pwm_pin_hsiom (pwm_channel_enum pwm_channel)
 }
 
 //-------------------------------------------------------------------------------------------------------------------
-//  �������     ��ȡ�˿�ͨ����
-//  ���ز���     cyhal_gpio_t
-//  ʹ��ʾ��     get_pwm_pin(TCPWM_CH00_P03_1);
-//  ��ע��Ϣ     �ڲ�����
+//  函数简介     获取端口通道号
+//  返回参数     cyhal_gpio_t
+//  使用示例     get_pwm_pin(TCPWM_CH00_P03_1);
+//  备注信息     内部调用
 //-------------------------------------------------------------------------------------------------------------------
 static uint8 get_pwm_ch (pwm_channel_enum pwm_channel)
 {
@@ -199,10 +199,10 @@ static uint8 get_pwm_ch (pwm_channel_enum pwm_channel)
 }
 
 //-------------------------------------------------------------------------------------------------------------------
-//  �������      �ر�����ͨ����PWM���
-//  ���ز���      void
-//  ʹ��ʾ��      pwm_all_channel_close();
-//  ��ע��Ϣ
+//  函数简介      关闭所有通道的PWM输出
+//  返回参数      void
+//  使用示例      pwm_all_channel_close();
+//  备注信息
 //-------------------------------------------------------------------------------------------------------------------
 void pwm_all_channel_close (void)
 {
@@ -213,12 +213,12 @@ void pwm_all_channel_close (void)
 }
 
 //-------------------------------------------------------------------------------------------------------------------
-// �������     PWMռ�ձ�����
-// ����˵��     pin             ѡ�� PWM ����
-// ����˵��     duty            ����ռ�ձ�
-// ���ز���     void
-// ʹ��ʾ��     pwm_set_duty(TCPWM1_CH00_P03_1, 5000); // ����ռ�ձ�Ϊ�ٷ�֮5000/PWM_DUTY_MAX*100
-// ��ע��Ϣ     PWM_DUTY_MAX �궨����zf_driver_pwm.h  Ĭ��Ϊ10000
+// 函数简介     PWM占空比设置
+// 参数说明     pin             选择 PWM 引脚
+// 参数说明     duty            设置占空比
+// 返回参数     void
+// 使用示例     pwm_set_duty(TCPWM1_CH00_P03_1, 5000); // 设置占空比为百分之5000/PWM_DUTY_MAX*100
+// 备注信息     PWM_DUTY_MAX 宏定义在zf_driver_pwm.h  默认为10000
 //-------------------------------------------------------------------------------------------------------------------
 void pwm_set_duty (pwm_channel_enum pwmch, uint32 duty)
 {
@@ -235,12 +235,12 @@ void pwm_set_duty (pwm_channel_enum pwmch, uint32 duty)
 }
 
 //-------------------------------------------------------------------------------------------------------------------
-// �������     PWMƵ������
-// ����˵��     pin             ѡ�� PWM ����
-// ����˵��     duty            ����ռ�ձ�
-// ���ز���     void
-// ʹ��ʾ��     pwm_set_freq(TCPWM1_CH00_P03_1, 5000); // ����Ƶ��Ϊ 5000hz
-// ��ע��Ϣ     
+// 函数简介     PWM频率设置
+// 参数说明     pin             选择 PWM 引脚
+// 参数说明     duty            设置占空比
+// 返回参数     void
+// 使用示例     pwm_set_freq(TCPWM1_CH00_P03_1, 5000); // 设置频率为 5000hz
+// 备注信息     
 //-------------------------------------------------------------------------------------------------------------------
 void pwm_set_freq (pwm_channel_enum pwmch, uint32 freq)
 {
@@ -274,7 +274,7 @@ void pwm_set_freq (pwm_channel_enum pwmch, uint32 freq)
         else if (128 >= tcpwm_prescaler_div)  clockPrescaler     = CY_TCPWM_PRESCALER_DIVBY_128;
         else
         {
-            zf_assert(0) ;                                                          // Ƶ�ʷ�Χ���
+            zf_assert(0) ;                                                          // 频率范围溢出
         }
         
         period = TCPWM0->GRP[0].CNT[get_pwm_ch(pwmch)].unPERIOD.u32Register;
@@ -313,13 +313,13 @@ void pwm_set_freq (pwm_channel_enum pwmch, uint32 freq)
 }
 
 //-------------------------------------------------------------------------------------------------------------------
-// �������     PWM ��ʼ��
-// ����˵��     pin             ѡ�� PWM ����
-// ����˵��     freq            ����Ƶ�� ͬ��ģ��ֻ�����һ��������Ч
-// ����˵��     duty            ����ռ�ձ�
-// ���ز���     void
-// ʹ��ʾ��     pwm_init(TCPWM_CH14_P00_2, 50, 1000);   // ATOM 0ģ���ͨ��7 ʹ��P02_7�������PWM  PWMƵ��50HZ  ռ�ձȰٷ�֮1000/PWM_DUTY_MAX*100
-// ��ע��Ϣ     PWM_DUTY_MAX �궨����zf_driver_pwm.h  Ĭ��Ϊ10000
+// 函数简介     PWM 初始化
+// 参数说明     pin             选择 PWM 引脚
+// 参数说明     freq            设置频率 同个模块只有最后一次设置生效
+// 参数说明     duty            设置占空比
+// 返回参数     void
+// 使用示例     pwm_init(TCPWM_CH14_P00_2, 50, 1000);   // ATOM 0模块的通道7 使用P02_7引脚输出PWM  PWM频率50HZ  占空比百分之1000/PWM_DUTY_MAX*100
+// 备注信息     PWM_DUTY_MAX 宏定义在zf_driver_pwm.h  默认为10000
 //-------------------------------------------------------------------------------------------------------------------
 void pwm_init (pwm_channel_enum pwmch, uint32 freq, uint32 duty)
 {	
@@ -334,7 +334,7 @@ void pwm_init (pwm_channel_enum pwmch, uint32 freq, uint32 duty)
     Cy_GPIO_Pin_Init(get_port(get_pwm_pin(pwmch)), (get_pwm_pin(pwmch) % 8), &pwm_pin_config);
     
     Cy_SysClk_PeriphAssignDivider((en_clk_dst_t)(get_pwm_ch(pwmch) + PCLK_TCPWM0_CLOCKS0), (cy_en_divider_types_t)CY_SYSCLK_DIV_16_BIT, 0ul);
-    Cy_SysClk_PeriphSetDivider((cy_en_divider_types_t)CY_SYSCLK_DIV_16_BIT, 0ul, 9u); // 80Mhzʱ�ӱ�10��ƵΪ8Mhz
+    Cy_SysClk_PeriphSetDivider((cy_en_divider_types_t)CY_SYSCLK_DIV_16_BIT, 0ul, 9u); // 80Mhz时钟被10分频为8Mhz
     Cy_SysClk_PeriphEnableDivider((cy_en_divider_types_t)CY_SYSCLK_DIV_16_BIT, 0ul);
     
     if(freq == 0)
@@ -355,7 +355,7 @@ void pwm_init (pwm_channel_enum pwmch, uint32 freq, uint32 duty)
     else if (128 >= tcpwm_prescaler_div)  tcpwm_pwm_config.clockPrescaler     = CY_TCPWM_PRESCALER_DIVBY_128;
     else
     {
-        zf_assert(0) ;                                                          // Ƶ�ʷ�Χ���
+        zf_assert(0) ;                                                          // 频率范围溢出
     }
     
     tcpwm_pwm_config.pwmMode            = CY_TCPWM_PWM_MODE_PWM                 ;

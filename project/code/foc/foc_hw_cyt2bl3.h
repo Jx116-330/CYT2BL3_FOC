@@ -1,12 +1,3 @@
-/*
- * CYT2BL3 FOC 硬件资源表
- *
- * FOC 的第一步刻意只建立数据表。
- * 它记录原理图和 MCU 外设资源之间的对应关系，
- * 方便后续寄存器代码对照这张稳定的小表进行检查。
- * 引入这个文件不会使能外设，也不会驱动任何引脚。
- */
-
 #ifndef FOC_HW_CYT2BL3_H
 #define FOC_HW_CYT2BL3_H
 
@@ -16,23 +7,33 @@
 #include "zf_driver_adc.h"
 #include "zf_driver_gpio.h"
 
-/* 一个半桥使用一个 TCPWM counter，以及它对应的 LINE/LINE_COMPL 输出对。 */
+//-------------------------------------------------------------------------------------------------------------------
+// 结构简介     一个半桥的硬件资源
+// 参数说明     tcpwm               控制这一相的 PWM 定时器
+// 参数说明     pwm_clock           这个定时器的外设时钟
+// 参数说明     line_pin            上桥驱动输入脚，接到 FD6288T 的 HIN
+// 参数说明     line_compl_pin      下桥驱动输入脚，接到 FD6288T 的 LIN
+// 参数说明     line_hsiom          上桥脚接到 PWM 正输出 LINE
+// 参数说明     line_compl_hsiom    下桥脚接到 PWM 互补输出 LINE_COMPL
+// 备注信息     一个定时器同时出 LINE 和 LINE_COMPL，才能做硬件互补和死区
+//-------------------------------------------------------------------------------------------------------------------
 typedef struct
 {
-    uint8_t         tcpwm_group;          /* TCPWM0 的 group 编号，例如 0、1、2。 */
-    uint8_t         tcpwm_counter;        /* 该 group 内部的 counter 编号。 */
-    uint16_t        tcpwm_line;           /* 逻辑 LINE 编号，例如 518。 */
-    uint16_t        tcpwm_line_compl;     /* 逻辑互补 LINE 编号。 */
-    gpio_pin_enum   line_pin;             /* 外部连接到上桥驱动输入的物理引脚。 */
-    gpio_pin_enum   line_compl_pin;       /* 外部连接到下桥驱动输入的物理引脚。 */
-    en_hsiom_sel_t  line_hsiom;           /* 上桥引脚使用的 HSIOM 选择值。 */
-    en_hsiom_sel_t  line_compl_hsiom;     /* 下桥引脚使用的 HSIOM 选择值。 */
+    volatile stc_TCPWM_GRP_CNT_t *tcpwm;
+    en_clk_dst_t               pwm_clock;
+    gpio_pin_enum              line_pin;
+    gpio_pin_enum              line_compl_pin;
+    en_hsiom_sel_t             line_hsiom;
+    en_hsiom_sel_t             line_compl_hsiom;
 } foc_half_bridge_hw_t;
 
-/*
- * 板上实际测量 U 相和 W 相电流。
- * ADC 通路验证完成后，软件再使用 I_v = -(I_u + I_w) 重构 V 相电流。
- */
+//-------------------------------------------------------------------------------------------------------------------
+// 结构简介     一台电机的硬件资源
+// 参数说明     u_phase / v_phase / w_phase     三相半桥
+// 参数说明     current_u_adc / current_w_adc   板上实测的 U、W 相电流通道
+// 参数说明     current_sar                     1 = SAR1，2 = SAR2
+// 备注信息     电流采样还没做。以后用 I_v = -(I_u + I_w) 软件补出 V 相
+//-------------------------------------------------------------------------------------------------------------------
 typedef struct
 {
     foc_half_bridge_hw_t u_phase;
@@ -40,28 +41,22 @@ typedef struct
     foc_half_bridge_hw_t w_phase;
     adc_channel_enum     current_u_adc;
     adc_channel_enum     current_w_adc;
-    uint8_t              current_sar;     /* 1 表示 SAR1，2 表示 SAR2。 */
+    uint8_t              current_sar;
 } foc_motor_hw_t;
 
-/*
- * 电机 1，来自原理图的连接关系：
- *
- *   U: P14.0/P14.1 -> FD6288T HIN1/LIN1
- *   V: P18.4/P18.5 -> FD6288T HIN2/LIN2
- *   W: P18.6/P18.7 -> FD6288T HIN3/LIN3
- *
- * 这里使用扩展 HSIOM 选择值 16 是有意的。
- * 它们把同一个 TCPWM counter 的 LINE 和 LINE_COMPL 引到两个引脚，
- * 这是实现互补 PWM 和硬件 dead-time 的必要条件。
- */
+//-------------------------------------------------------------------------------------------------------------------
+// 变量简介     电机 1 接线表
+// 备注信息     U: P14.0/P14.1 -> HIN1/LIN1
+//              V: P18.4/P18.5 -> HIN2/LIN2
+//              W: P18.6/P18.7 -> HIN3/LIN3
+//              改接线只改这张表，foc_init.c 按表准备 PWM
+//-------------------------------------------------------------------------------------------------------------------
 static const foc_motor_hw_t foc_motor1_hw =
 {
     .u_phase =
     {
-        .tcpwm_group       = 2u,
-        .tcpwm_counter     = 6u,
-        .tcpwm_line        = 518u,
-        .tcpwm_line_compl  = 518u,
+        .tcpwm             = TCPWM0_GRP2_CNT6,
+        .pwm_clock         = PCLK_TCPWM0_CLOCKS518,
         .line_pin          = P14_0,
         .line_compl_pin    = P14_1,
         .line_hsiom        = P14_0_TCPWM0_LINE518,
@@ -69,10 +64,8 @@ static const foc_motor_hw_t foc_motor1_hw =
     },
     .v_phase =
     {
-        .tcpwm_group       = 2u,
-        .tcpwm_counter     = 2u,
-        .tcpwm_line        = 514u,
-        .tcpwm_line_compl  = 514u,
+        .tcpwm             = TCPWM0_GRP2_CNT2,
+        .pwm_clock         = PCLK_TCPWM0_CLOCKS514,
         .line_pin          = P18_4,
         .line_compl_pin    = P18_5,
         .line_hsiom        = P18_4_TCPWM0_LINE514,
@@ -80,10 +73,8 @@ static const foc_motor_hw_t foc_motor1_hw =
     },
     .w_phase =
     {
-        .tcpwm_group       = 2u,
-        .tcpwm_counter     = 3u,
-        .tcpwm_line        = 515u,
-        .tcpwm_line_compl  = 515u,
+        .tcpwm             = TCPWM0_GRP2_CNT3,
+        .pwm_clock         = PCLK_TCPWM0_CLOCKS515,
         .line_pin          = P18_6,
         .line_compl_pin    = P18_7,
         .line_hsiom        = P18_6_TCPWM0_LINE515,
@@ -94,18 +85,18 @@ static const foc_motor_hw_t foc_motor1_hw =
     .current_sar   = 2u,
 };
 
-/*
- * 电机 2 先记录在这里，但要等电机 1 的 PWM/ADC 通路验证完成后再初始化。
- * 两个电机都集中记录在这里，可以避免后续驱动代码重复填写引脚分配。
- */
+//-------------------------------------------------------------------------------------------------------------------
+// 变量简介     电机 2 接线表
+// 备注信息     U: P00.2/P00.3 -> HIN1/LIN1
+//              V: P02.0/P02.1 -> HIN2/LIN2
+//              W: P05.0/P05.1 -> HIN3/LIN3
+//-------------------------------------------------------------------------------------------------------------------
 static const foc_motor_hw_t foc_motor2_hw =
 {
     .u_phase =
     {
-        .tcpwm_group       = 0u,
-        .tcpwm_counter     = 14u,
-        .tcpwm_line        = 14u,
-        .tcpwm_line_compl  = 14u,
+        .tcpwm             = TCPWM0_GRP0_CNT14,
+        .pwm_clock         = PCLK_TCPWM0_CLOCKS14,
         .line_pin          = P00_2,
         .line_compl_pin    = P00_3,
         .line_hsiom        = P0_2_TCPWM0_LINE14,
@@ -113,10 +104,8 @@ static const foc_motor_hw_t foc_motor2_hw =
     },
     .v_phase =
     {
-        .tcpwm_group       = 0u,
-        .tcpwm_counter     = 7u,
-        .tcpwm_line        = 7u,
-        .tcpwm_line_compl  = 7u,
+        .tcpwm             = TCPWM0_GRP0_CNT7,
+        .pwm_clock         = PCLK_TCPWM0_CLOCKS7,
         .line_pin          = P02_0,
         .line_compl_pin    = P02_1,
         .line_hsiom        = P2_0_TCPWM0_LINE7,
@@ -124,10 +113,8 @@ static const foc_motor_hw_t foc_motor2_hw =
     },
     .w_phase =
     {
-        .tcpwm_group       = 0u,
-        .tcpwm_counter     = 9u,
-        .tcpwm_line        = 9u,
-        .tcpwm_line_compl  = 9u,
+        .tcpwm             = TCPWM0_GRP0_CNT9,
+        .pwm_clock         = PCLK_TCPWM0_CLOCKS9,
         .line_pin          = P05_0,
         .line_compl_pin    = P05_1,
         .line_hsiom        = P5_0_TCPWM0_LINE9,

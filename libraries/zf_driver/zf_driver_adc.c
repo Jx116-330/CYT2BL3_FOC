@@ -1,37 +1,37 @@
 /*********************************************************************************************************************
-* CYT2BL3 Opensource Library ���� CYT2BL3 ��Դ�⣩��һ�����ڹٷ� SDK �ӿڵĵ�������Դ��
-* Copyright (c) 2022 SEEKFREE ��ɿƼ�
+* CYT2BL3 Opensource Library 即（ CYT2BL3 开源库）是一个基于官方 SDK 接口的第三方开源库
+* Copyright (c) 2022 SEEKFREE 逐飞科技
 *
-* ���ļ��� CYT2BL3 ��Դ���һ����
+* 本文件是 CYT2BL3 开源库的一部分
 *
-* CYT2BL3 ��Դ�� ���������
-* �����Ը���������������ᷢ���� GPL��GNU General Public License���� GNUͨ�ù�������֤��������
-* �� GPL �ĵ�3�棨�� GPL3.0������ѡ��ģ��κκ����İ汾�����·�����/���޸���
+* CYT2BL3 开源库 是免费软件
+* 您可以根据自由软件基金会发布的 GPL（GNU General Public License，即 GNU通用公共许可证）的条款
+* 即 GPL 的第3版（即 GPL3.0）或（您选择的）任何后来的版本，重新发布和/或修改它
 *
-* ����Դ��ķ�����ϣ�����ܷ������ã�����δ�������κεı�֤
-* ����û�������������Ի��ʺ��ض���;�ı�֤
-* ����ϸ����μ� GPL
+* 本开源库的发布是希望它能发挥作用，但并未对其作任何的保证
+* 甚至没有隐含的适销性或适合特定用途的保证
+* 更多细节请参见 GPL
 *
-* ��Ӧ�����յ�����Դ���ͬʱ�յ�һ�� GPL �ĸ���
-* ���û�У������<https://www.gnu.org/licenses/>
+* 您应该在收到本开源库的同时收到一份 GPL 的副本
+* 如果没有，请参阅<https://www.gnu.org/licenses/>
 *
-* ����ע����
-* ����Դ��ʹ�� GPL3.0 ��Դ����֤Э�� ������������Ϊ���İ汾
-* ��������Ӣ�İ��� libraries/doc �ļ����µ� GPL3_permission_statement.txt �ļ���
-* ����֤������ libraries �ļ����� �����ļ����µ� LICENSE �ļ�
-* ��ӭ��λʹ�ò����������� ���޸�����ʱ���뱣����ɿƼ��İ�Ȩ����������������
+* 额外注明：
+* 本开源库使用 GPL3.0 开源许可证协议 以上许可申明为译文版本
+* 许可申明英文版在 libraries/doc 文件夹下的 GPL3_permission_statement.txt 文件中
+* 许可证副本在 libraries 文件夹下 即该文件夹下的 LICENSE 文件
+* 欢迎各位使用并传播本程序 但修改内容时必须保留逐飞科技的版权声明（即本声明）
 *
-* �ļ�����          zf_driver_adc
-* ��˾����          �ɶ���ɿƼ����޹�˾
-* �汾��Ϣ          �鿴 libraries/doc �ļ����� version �ļ� �汾˵��
-* ��������          IAR 9.40.1
-* ����ƽ̨          CYT2BL3
-* ��������          https://seekfree.taobao.com/
+* 文件名称          zf_driver_adc
+* 公司名称          成都逐飞科技有限公司
+* 版本信息          查看 libraries/doc 文件夹内 version 文件 版本说明
+* 开发环境          IAR 9.40.1
+* 适用平台          CYT2BL3
+* 店铺链接          https://seekfree.taobao.com/
 *
-* �޸ļ�¼
-* ����              ����                ��ע
+* 修改记录
+* 日期              作者                备注
 * 2024-1-8       pudding            first version
-* 2024-1-29      pudding            �Ż���߲ɼ��ٶ� ���βɼ�ʱ��0.525us����
+* 2024-1-29      pudding            优化提高采集速度 单次采集时间0.525us左右
 ********************************************************************************************************************/
 
 #include "sysclk/cy_sysclk.h"
@@ -41,20 +41,20 @@
 #include "zf_common_debug.h"
 #include "zf_driver_adc.h"
 
-#define ADC_FREQ                                CY_INITIAL_TARGET_PERI_FREQ     // ADCģ��ʱ�� Ĭ��80M
-#define ADC_OPERATION_FREQUENCY_MAX_IN_HZ       (13340000ul)                    // ADC����Ƶ�� ���13.34M
-#define ANALOG_IN_SAMPLING_TIME_MIN_IN_NS       (600ull)                        // ADC����ʱ�� ���600ns
-#define DIV_ROUND_UP(a,b)                       (((a) + (b)/2) / (b))           // ����ϵ������ ����ȡ��
+#define ADC_FREQ                                CY_INITIAL_TARGET_PERI_FREQ     // ADC模块时钟 默认80M
+#define ADC_OPERATION_FREQUENCY_MAX_IN_HZ       (13340000ul)                    // ADC工作频率 最高13.34M
+#define ANALOG_IN_SAMPLING_TIME_MIN_IN_NS       (600ull)                        // ADC采样时间 最短600ns
+#define DIV_ROUND_UP(a,b)                       (((a) + (b)/2) / (b))           // 分配系数计算 向上取整
 
 static vuint8 adc_resolution[ADC_CHANNEL_NUM];
 static volatile stc_PASS_SAR_t* sar_adc[3] = {PASS0_SAR0, PASS0_SAR1, PASS0_SAR2};
 
 //-------------------------------------------------------------------------------------------------------------------
-// �������     ADC �˿ںŻ�ȡ
-// ����˵��     vadc_chn        ѡ�� ADC ͨ�� (��� zf_driver_adc.h ��ö�� adc_channel_enum ����)
-// ���ز���     gpio_pin_enum   ADCͨ����Ӧ��GPIO����
-// ʹ��ʾ��     get_adc_pin(ADC0_CH0_P6_0);
-// ��ע��Ϣ     �ڲ����� �û��������
+// 函数简介     ADC 端口号获取
+// 参数说明     vadc_chn        选择 ADC 通道 (详见 zf_driver_adc.h 中枚举 adc_channel_enum 定义)
+// 返回参数     gpio_pin_enum   ADC通道对应的GPIO引脚
+// 使用示例     get_adc_pin(ADC0_CH0_P6_0);
+// 备注信息     内部函数 用户无需关心
 //-------------------------------------------------------------------------------------------------------------------
 static gpio_pin_enum get_adc_pin(adc_channel_enum vadc_chn)
 {
@@ -94,11 +94,11 @@ static gpio_pin_enum get_adc_pin(adc_channel_enum vadc_chn)
 }
 
 //-------------------------------------------------------------------------------------------------------------------
-// �������     ADC ת��һ��
-// ����˵��     ch              ѡ�� ADC ͨ�� (��� zf_driver_adc.h ��ö�� adc_channel_enum ����)
-// ���ز���     uint16          ת���� ADC ֵ
-// ʹ��ʾ��     adc_convert(ADC0_CH00_P06_0);
-// ��ע��Ϣ
+// 函数简介     ADC 转换一次
+// 参数说明     ch              选择 ADC 通道 (详见 zf_driver_adc.h 中枚举 adc_channel_enum 定义)
+// 返回参数     uint16          转换的 ADC 值
+// 使用示例     adc_convert(ADC0_CH00_P06_0);
+// 备注信息
 //-------------------------------------------------------------------------------------------------------------------
 uint16 adc_convert (adc_channel_enum adc_chn)
 {
@@ -121,19 +121,19 @@ uint16 adc_convert (adc_channel_enum adc_chn)
 }
 
 //-------------------------------------------------------------------------------------------------------------------
-// �������     ADC ��ֵ�˲�ת��
-// ����˵��     ch              ѡ�� ADC ͨ�� (��� zf_driver_adc.h ��ö�� adc_channel_enum ����)
-// ����˵��     count           ��ֵ�˲�����
-// ���ز���     uint16          ת���� ADC ֵ
-// ʹ��ʾ��     adc_mean_filter_convert(ADC0_CH00_P06_0, 5);                        // �ɼ�5�� Ȼ�󷵻�ƽ��ֵ
-// ��ע��Ϣ
+// 函数简介     ADC 均值滤波转换
+// 参数说明     ch              选择 ADC 通道 (详见 zf_driver_adc.h 中枚举 adc_channel_enum 定义)
+// 参数说明     count           均值滤波次数
+// 返回参数     uint16          转换的 ADC 值
+// 使用示例     adc_mean_filter_convert(ADC0_CH00_P06_0, 5);                        // 采集5次 然后返回平均值
+// 备注信息
 //-------------------------------------------------------------------------------------------------------------------
 uint16 adc_mean_filter_convert (adc_channel_enum vadc_chn, uint8 count)
 {
     uint8 i;
     uint32 sum;
 
-    zf_assert(count);// ���Դ�������Ϊ0
+    zf_assert(count);// 断言次数不能为0
 
     sum = 0;
     for(i=0; i<count; i++)
@@ -149,12 +149,12 @@ uint16 adc_mean_filter_convert (adc_channel_enum vadc_chn, uint8 count)
 
 //-------------------------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------------------------
-// �������     ADC ��ʼ��
-// ����˵��     ch              ѡ�� ADC ͨ�� (��� zf_driver_adc.h ��ö�� adc_channel_enum ����)
-// ����˵��     resolution      ѡ��ѡ��ͨ���ֱ���(���ͬһ�� ADC ģ���ʼ��ʱ�����˲�ͬ�ķֱ��� �����һ����ʼ���ķֱ�����Ч)
-// ���ز���     void
-// ʹ��ʾ��     adc_init(ADC0_CH00_P06_0, ADC_12BIT);                                // ��ʼ�� A0 Ϊ ADC1 �� channel0 ���빦�� �ֱ���Ϊ8λ
-// ��ע��Ϣ
+// 函数简介     ADC 初始化
+// 参数说明     ch              选择 ADC 通道 (详见 zf_driver_adc.h 中枚举 adc_channel_enum 定义)
+// 参数说明     resolution      选择选择通道分辨率(如果同一个 ADC 模块初始化时设置了不同的分辨率 则最后一个初始化的分辨率生效)
+// 返回参数     void
+// 使用示例     adc_init(ADC0_CH00_P06_0, ADC_12BIT);                                // 初始化 A0 为 ADC1 的 channel0 输入功能 分辨率为8位
+// 备注信息
 //-------------------------------------------------------------------------------------------------------------------
 void adc_init (adc_channel_enum adc_chn, adc_resolution_enum resolution)
 {	

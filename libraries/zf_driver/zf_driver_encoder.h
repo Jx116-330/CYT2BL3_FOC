@@ -1,37 +1,37 @@
 /*********************************************************************************************************************
-* CYT2BL37CEE Opensource Library ����CYT2BL37CEE ��Դ�⣩��һ�����ڹٷ� SDK �ӿڵĵ�������Դ��
-* Copyright (c) 2023 SEEKFREE ��ɿƼ�
+* CYT2BL37CEE Opensource Library 即（CYT2BL37CEE 开源库）是一个基于官方 SDK 接口的第三方开源库
+* Copyright (c) 2023 SEEKFREE 逐飞科技
 *
-* ���ļ��� CYT2BL37CEE ��Դ���һ����
+* 本文件是 CYT2BL37CEE 开源库的一部分
 *
-* CYT2BL37CEE ��Դ�� ���������
-* �����Ը���������������ᷢ���� GPL��GNU General Public License���� GNUͨ�ù�������֤��������
-* �� GPL �ĵ�3�棨�� GPL3.0������ѡ��ģ��κκ����İ汾�����·�����/���޸���
+* CYT2BL37CEE 开源库 是免费软件
+* 您可以根据自由软件基金会发布的 GPL（GNU General Public License，即 GNU通用公共许可证）的条款
+* 即 GPL 的第3版（即 GPL3.0）或（您选择的）任何后来的版本，重新发布和/或修改它
 *
-* ����Դ��ķ�����ϣ�����ܷ������ã�����δ�������κεı�֤
-* ����û�������������Ի��ʺ��ض���;�ı�֤
-* ����ϸ����μ� GPL
+* 本开源库的发布是希望它能发挥作用，但并未对其作任何的保证
+* 甚至没有隐含的适销性或适合特定用途的保证
+* 更多细节请参见 GPL
 *
-* ��Ӧ�����յ�����Դ���ͬʱ�յ�һ�� GPL �ĸ���
-* ���û�У������<https://www.gnu.org/licenses/>
+* 您应该在收到本开源库的同时收到一份 GPL 的副本
+* 如果没有，请参阅<https://www.gnu.org/licenses/>
 *
-* ����ע����
-* ����Դ��ʹ�� GPL3.0 ��Դ����֤Э�� ������������Ϊ���İ汾
-* ��������Ӣ�İ��� libraries/doc �ļ����µ� GPL3_permission_statement.txt �ļ���
-* ����֤������ libraries �ļ����� �����ļ����µ� LICENSE �ļ�
-* ��ӭ��λʹ�ò����������� ���޸�����ʱ���뱣����ɿƼ��İ�Ȩ����������������
+* 额外注明：
+* 本开源库使用 GPL3.0 开源许可证协议 以上许可申明为译文版本
+* 许可申明英文版在 libraries/doc 文件夹下的 GPL3_permission_statement.txt 文件中
+* 许可证副本在 libraries 文件夹下 即该文件夹下的 LICENSE 文件
+* 欢迎各位使用并传播本程序 但修改内容时必须保留逐飞科技的版权声明（即本声明）
 *
-* �ļ�����          zf_driver_encoder
-* ��˾����          �ɶ���ɿƼ����޹�˾
-* �汾��Ϣ          �鿴 libraries/doc �ļ����� version �ļ� �汾˵��
-* ��������          MDK 5.38a
-* ����ƽ̨          CYT2BL37CEE
-* ��������          https://seekfree.taobao.com/
+* 文件名称          zf_driver_encoder
+* 公司名称          成都逐飞科技有限公司
+* 版本信息          查看 libraries/doc 文件夹内 version 文件 版本说明
+* 开发环境          MDK 5.38a
+* 适用平台          CYT2BL37CEE
+* 店铺链接          https://seekfree.taobao.com/
 *
-* �޸ļ�¼
-* ����              ����                ��ע
+* 修改记录
+* 日期              作者                备注
 * 2023-11-30       pudding            first version
-* 2023-05-21       pudding            ����֧������������
+* 2023-05-21       pudding            新增支持正交编码器
 ********************************************************************************************************************/
 
 #ifndef _zf_driver_encoder_h_
@@ -39,25 +39,25 @@
 
 #include "zf_common_typedef.h"
 
-// ��ö�ٶ��岻�����û��޸�
-typedef enum // ö�ٱ���������
+// 此枚举定义不允许用户修改
+typedef enum // 枚举编码器引脚
 {
-    TC_CH07_ENCODER_CH1_P02_0,    // tcpwmģ���ͨ��7  �������ſ�ѡ��Χ
-    TC_CH09_ENCODER_CH1_P05_0,    // tcpwmģ���ͨ��9  �������ſ�ѡ��Χ
-    TC_CH19_ENCODER_CH1_P08_0,    // tcpwmģ���ͨ��19 �������ſ�ѡ��Χ	
-    TC_CH36_ENCODER_CH1_P12_0,    // tcpwmģ���ͨ��36 �������ſ�ѡ��Χ
+    TC_CH07_ENCODER_CH1_P02_0,    // tcpwm模块的通道7  计数引脚可选范围
+    TC_CH09_ENCODER_CH1_P05_0,    // tcpwm模块的通道9  计数引脚可选范围
+    TC_CH19_ENCODER_CH1_P08_0,    // tcpwm模块的通道19 计数引脚可选范围	
+    TC_CH36_ENCODER_CH1_P12_0,    // tcpwm模块的通道36 计数引脚可选范围
 }encoder_channel1_enum;
 
-// ��ö�ٶ��岻�����û��޸�
-typedef enum // ö�ٱ���������
+// 此枚举定义不允许用户修改
+typedef enum // 枚举编码器引脚
 {
-    TC_CH07_ENCODER_CH2_P02_1,    // tcpwmģ���ͨ��7  �������ſ�ѡ��Χ	 
-    TC_CH09_ENCODER_CH2_P05_1,    // tcpwmģ���ͨ��9  �������ſ�ѡ��Χ
-    TC_CH19_ENCODER_CH2_P08_1,    // tcpwmģ���ͨ��19 �������ſ�ѡ��Χ	
-    TC_CH36_ENCODER_CH2_P12_1,    // tcpwmģ���ͨ��36 �������ſ�ѡ��Χ
+    TC_CH07_ENCODER_CH2_P02_1,    // tcpwm模块的通道7  计数引脚可选范围	 
+    TC_CH09_ENCODER_CH2_P05_1,    // tcpwm模块的通道9  计数引脚可选范围
+    TC_CH19_ENCODER_CH2_P08_1,    // tcpwm模块的通道19 计数引脚可选范围	
+    TC_CH36_ENCODER_CH2_P12_1,    // tcpwm模块的通道36 计数引脚可选范围
 }encoder_channel2_enum;
 
-typedef enum  // ö�� ��ʱ�����
+typedef enum  // 枚举 定时器编号
 {
     TC_CH07_ENCODER,
     TC_CH09_ENCODER,
@@ -65,12 +65,12 @@ typedef enum  // ö�� ��ʱ�����
     TC_CH36_ENCODER,
 }encoder_index_enum;
 
-//====================================================������ ��������====================================================
+//====================================================编码器 基础函数====================================================
 int16 encoder_get_count     (encoder_index_enum encoder_n);
 void  encoder_clear_count   (encoder_index_enum encoder_n);
 
 void  encoder_quad_init     (encoder_index_enum encoder_n, encoder_channel1_enum count_pin, encoder_channel2_enum dir_pin);
 void  encoder_dir_init      (encoder_index_enum encoder_n, encoder_channel1_enum ch1_pin, encoder_channel2_enum ch2_pin);
-//====================================================������ ��������====================================================
+//====================================================编码器 基础函数====================================================
 
 #endif

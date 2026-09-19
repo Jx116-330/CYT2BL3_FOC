@@ -1,35 +1,35 @@
 /*********************************************************************************************************************
-* CYT2BL3 Opensource Library ¼´£¨ CYT2BL3 ¿ªÔ´¿â£©ÊÇÒ»¸ö»ùÓÚ¹Ù·½ SDK ½Ó¿ÚµÄµÚÈý·½¿ªÔ´¿â
-* Copyright (c) 2022 SEEKFREE Öð·É¿Æ¼¼
+* CYT2BL3 Opensource Library å³ï¼ˆ CYT2BL3 å¼€æºåº“ï¼‰æ˜¯ä¸€ä¸ªåŸºäºŽå®˜æ–¹ SDK æŽ¥å£çš„ç¬¬ä¸‰æ–¹å¼€æºåº“
+* Copyright (c) 2022 SEEKFREE é€é£žç§‘æŠ€
 *
-* ±¾ÎÄ¼þÊÇ CYT2BL3 ¿ªÔ´¿âµÄÒ»²¿·Ö
+* æœ¬æ–‡ä»¶æ˜¯ CYT2BL3 å¼€æºåº“çš„ä¸€éƒ¨åˆ†
 *
-* CYT2BL3 ¿ªÔ´¿â ÊÇÃâ·ÑÈí¼þ
-* Äú¿ÉÒÔ¸ù¾Ý×ÔÓÉÈí¼þ»ù½ð»á·¢²¼µÄ GPL£¨GNU General Public License£¬¼´ GNUÍ¨ÓÃ¹«¹²Ðí¿ÉÖ¤£©µÄÌõ¿î
-* ¼´ GPL µÄµÚ3°æ£¨¼´ GPL3.0£©»ò£¨ÄúÑ¡ÔñµÄ£©ÈÎºÎºóÀ´µÄ°æ±¾£¬ÖØÐÂ·¢²¼ºÍ/»òÐÞ¸ÄËü
+* CYT2BL3 å¼€æºåº“ æ˜¯å…è´¹è½¯ä»¶
+* æ‚¨å¯ä»¥æ ¹æ®è‡ªç”±è½¯ä»¶åŸºé‡‘ä¼šå‘å¸ƒçš„ GPLï¼ˆGNU General Public Licenseï¼Œå³ GNUé€šç”¨å…¬å…±è®¸å¯è¯ï¼‰çš„æ¡æ¬¾
+* å³ GPL çš„ç¬¬3ç‰ˆï¼ˆå³ GPL3.0ï¼‰æˆ–ï¼ˆæ‚¨é€‰æ‹©çš„ï¼‰ä»»ä½•åŽæ¥çš„ç‰ˆæœ¬ï¼Œé‡æ–°å‘å¸ƒå’Œ/æˆ–ä¿®æ”¹å®ƒ
 *
-* ±¾¿ªÔ´¿âµÄ·¢²¼ÊÇÏ£ÍûËüÄÜ·¢»Ó×÷ÓÃ£¬µ«²¢Î´¶ÔÆä×÷ÈÎºÎµÄ±£Ö¤
-* ÉõÖÁÃ»ÓÐÒþº¬µÄÊÊÏúÐÔ»òÊÊºÏÌØ¶¨ÓÃÍ¾µÄ±£Ö¤
-* ¸ü¶àÏ¸½ÚÇë²Î¼û GPL
+* æœ¬å¼€æºåº“çš„å‘å¸ƒæ˜¯å¸Œæœ›å®ƒèƒ½å‘æŒ¥ä½œç”¨ï¼Œä½†å¹¶æœªå¯¹å…¶ä½œä»»ä½•çš„ä¿è¯
+* ç”šè‡³æ²¡æœ‰éšå«çš„é€‚é”€æ€§æˆ–é€‚åˆç‰¹å®šç”¨é€”çš„ä¿è¯
+* æ›´å¤šç»†èŠ‚è¯·å‚è§ GPL
 *
-* ÄúÓ¦¸ÃÔÚÊÕµ½±¾¿ªÔ´¿âµÄÍ¬Ê±ÊÕµ½Ò»·Ý GPL µÄ¸±±¾
-* Èç¹ûÃ»ÓÐ£¬Çë²ÎÔÄ<https://www.gnu.org/licenses/>
+* æ‚¨åº”è¯¥åœ¨æ”¶åˆ°æœ¬å¼€æºåº“çš„åŒæ—¶æ”¶åˆ°ä¸€ä»½ GPL çš„å‰¯æœ¬
+* å¦‚æžœæ²¡æœ‰ï¼Œè¯·å‚é˜…<https://www.gnu.org/licenses/>
 *
-* ¶îÍâ×¢Ã÷£º
-* ±¾¿ªÔ´¿âÊ¹ÓÃ GPL3.0 ¿ªÔ´Ðí¿ÉÖ¤Ð­Òé ÒÔÉÏÐí¿ÉÉêÃ÷ÎªÒëÎÄ°æ±¾
-* Ðí¿ÉÉêÃ÷Ó¢ÎÄ°æÔÚ libraries/doc ÎÄ¼þ¼ÐÏÂµÄ GPL3_permission_statement.txt ÎÄ¼þÖÐ
-* Ðí¿ÉÖ¤¸±±¾ÔÚ libraries ÎÄ¼þ¼ÐÏÂ ¼´¸ÃÎÄ¼þ¼ÐÏÂµÄ LICENSE ÎÄ¼þ
-* »¶Ó­¸÷Î»Ê¹ÓÃ²¢´«²¥±¾³ÌÐò µ«ÐÞ¸ÄÄÚÈÝÊ±±ØÐë±£ÁôÖð·É¿Æ¼¼µÄ°æÈ¨ÉùÃ÷£¨¼´±¾ÉùÃ÷£©
+* é¢å¤–æ³¨æ˜Žï¼š
+* æœ¬å¼€æºåº“ä½¿ç”¨ GPL3.0 å¼€æºè®¸å¯è¯åè®® ä»¥ä¸Šè®¸å¯ç”³æ˜Žä¸ºè¯‘æ–‡ç‰ˆæœ¬
+* è®¸å¯ç”³æ˜Žè‹±æ–‡ç‰ˆåœ¨ libraries/doc æ–‡ä»¶å¤¹ä¸‹çš„ GPL3_permission_statement.txt æ–‡ä»¶ä¸­
+* è®¸å¯è¯å‰¯æœ¬åœ¨ libraries æ–‡ä»¶å¤¹ä¸‹ å³è¯¥æ–‡ä»¶å¤¹ä¸‹çš„ LICENSE æ–‡ä»¶
+* æ¬¢è¿Žå„ä½ä½¿ç”¨å¹¶ä¼ æ’­æœ¬ç¨‹åº ä½†ä¿®æ”¹å†…å®¹æ—¶å¿…é¡»ä¿ç•™é€é£žç§‘æŠ€çš„ç‰ˆæƒå£°æ˜Žï¼ˆå³æœ¬å£°æ˜Žï¼‰
 *
-* ÎÄ¼þÃû³Æ          zf_driver_soft_spi
-* ¹«Ë¾Ãû³Æ          ³É¶¼Öð·É¿Æ¼¼ÓÐÏÞ¹«Ë¾
-* °æ±¾ÐÅÏ¢          ²é¿´ libraries/doc ÎÄ¼þ¼ÐÄÚ version ÎÄ¼þ °æ±¾ËµÃ÷
-* ¿ª·¢»·¾³          IAR 9.40.1
-* ÊÊÓÃÆ½Ì¨          CYT2BL3
-* µêÆÌÁ´½Ó          https://seekfree.taobao.com/
+* æ–‡ä»¶åç§°          zf_driver_soft_spi
+* å…¬å¸åç§°          æˆéƒ½é€é£žç§‘æŠ€æœ‰é™å…¬å¸
+* ç‰ˆæœ¬ä¿¡æ¯          æŸ¥çœ‹ libraries/doc æ–‡ä»¶å¤¹å†… version æ–‡ä»¶ ç‰ˆæœ¬è¯´æ˜Ž
+* å¼€å‘çŽ¯å¢ƒ          IAR 9.40.1
+* é€‚ç”¨å¹³å°          CYT2BL3
+* åº—é“ºé“¾æŽ¥          https://seekfree.taobao.com/
 *
-* ÐÞ¸Ä¼ÇÂ¼
-* ÈÕÆÚ              ×÷Õß                ±¸×¢
+* ä¿®æ”¹è®°å½•
+* æ—¥æœŸ              ä½œè€…                å¤‡æ³¨
 * 2024-1-8       pudding            first version
 ********************************************************************************************************************/
 
@@ -37,21 +37,21 @@
 #include "zf_driver_soft_spi.h"
 
 //-------------------------------------------------------------------------------------------------------------------
-// º¯Êý¼ò½é     Èí¼þ SPI ÑÓÊ±
-// ²ÎÊýËµÃ÷     void
-// ·µ»Ø²ÎÊý     void
-// Ê¹ÓÃÊ¾Àý     soft_spi_delay(1);
-// ±¸×¢ÐÅÏ¢     ÄÚ²¿µ÷ÓÃ
+// å‡½æ•°ç®€ä»‹     è½¯ä»¶ SPI å»¶æ—¶
+// å‚æ•°è¯´æ˜Ž     void
+// è¿”å›žå‚æ•°     void
+// ä½¿ç”¨ç¤ºä¾‹     soft_spi_delay(1);
+// å¤‡æ³¨ä¿¡æ¯     å†…éƒ¨è°ƒç”¨
 //-------------------------------------------------------------------------------------------------------------------
 #define soft_spi_delay(x)  for(uint32 i = x; i --; )
 
 //-------------------------------------------------------------------------------------------------------------------
-// º¯Êý¼ò½é     Èí¼þ SPI 8bit Êý¾Ý¶ÁÐ´
-// ²ÎÊýËµÃ÷     *soft_spi_obj   Èí¼þ SPI Ö¸¶¨ÐÅÏ¢´æ·Å½á¹¹ÌåµÄÖ¸Õë
-// ²ÎÊýËµÃ÷     data            Êý¾Ý
-// ·µ»Ø²ÎÊý     uint8           ¶ÁÈ¡µÄÊý¾Ý
-// Ê¹ÓÃÊ¾Àý     soft_spi_8bit_data_handler(soft_spi_obj, 1);
-// ±¸×¢ÐÅÏ¢     ÄÚ²¿µ÷ÓÃ
+// å‡½æ•°ç®€ä»‹     è½¯ä»¶ SPI 8bit æ•°æ®è¯»å†™
+// å‚æ•°è¯´æ˜Ž     *soft_spi_obj   è½¯ä»¶ SPI æŒ‡å®šä¿¡æ¯å­˜æ”¾ç»“æž„ä½“çš„æŒ‡é’ˆ
+// å‚æ•°è¯´æ˜Ž     data            æ•°æ®
+// è¿”å›žå‚æ•°     uint8           è¯»å–çš„æ•°æ®
+// ä½¿ç”¨ç¤ºä¾‹     soft_spi_8bit_data_handler(soft_spi_obj, 1);
+// å¤‡æ³¨ä¿¡æ¯     å†…éƒ¨è°ƒç”¨
 //-------------------------------------------------------------------------------------------------------------------
 static uint8 soft_spi_8bit_data_handler (soft_spi_info_struct *soft_spi_obj, const uint8 data)
 {
@@ -64,16 +64,16 @@ static uint8 soft_spi_8bit_data_handler (soft_spi_info_struct *soft_spi_obj, con
         gpio_low(soft_spi_obj->cs_pin);
     }
 
-    if(0 == soft_spi_obj->config.mode || 1 == soft_spi_obj->config.mode)        // CPOL = 0 SCK ¿ÕÏÐµÍµçÆ½
+    if(0 == soft_spi_obj->config.mode || 1 == soft_spi_obj->config.mode)        // CPOL = 0 SCK ç©ºé—²ä½Žç”µå¹³
     {
         gpio_low(soft_spi_obj->sck_pin);
     }
-    else                                                                        // CPOL = 1 SCK ¿ÕÏÐ¸ßµçÆ½
+    else                                                                        // CPOL = 1 SCK ç©ºé—²é«˜ç”µå¹³
     {
         gpio_high(soft_spi_obj->sck_pin);
     }
 
-    if(0 == soft_spi_obj->config.mode % 2)                                      // CPHA = 0 µÚÒ»¸ö±ßÑØ²ÉÑù
+    if(0 == soft_spi_obj->config.mode % 2)                                      // CPHA = 0 ç¬¬ä¸€ä¸ªè¾¹æ²¿é‡‡æ ·
     {
         for(temp = 8; temp > 0; temp --)
         {
@@ -97,7 +97,7 @@ static uint8 soft_spi_8bit_data_handler (soft_spi_info_struct *soft_spi_obj, con
             gpio_toggle_level(soft_spi_obj->sck_pin);
         }
     }
-    else                                                                        // CPHA = 1 µÚ¶þ¸ö±ßÑØ²ÉÑù
+    else                                                                        // CPHA = 1 ç¬¬äºŒä¸ªè¾¹æ²¿é‡‡æ ·
     {
         for(temp = 8; 0 < temp; temp --)
         {
@@ -130,12 +130,12 @@ static uint8 soft_spi_8bit_data_handler (soft_spi_info_struct *soft_spi_obj, con
 }
 
 //-------------------------------------------------------------------------------------------------------------------
-// º¯Êý¼ò½é     Èí¼þ SPI 16bit Êý¾Ý¶ÁÐ´
-// ²ÎÊýËµÃ÷     *soft_spi_obj   Èí¼þ SPI Ö¸¶¨ÐÅÏ¢´æ·Å½á¹¹ÌåµÄÖ¸Õë
-// ²ÎÊýËµÃ÷     data            Êý¾Ý
-// ·µ»Ø²ÎÊý     uint16          ¶ÁÈ¡µÄÊý¾Ý
-// Ê¹ÓÃÊ¾Àý     soft_spi_16bit_data_handler(soft_spi_obj, 1);
-// ±¸×¢ÐÅÏ¢     ÄÚ²¿µ÷ÓÃ
+// å‡½æ•°ç®€ä»‹     è½¯ä»¶ SPI 16bit æ•°æ®è¯»å†™
+// å‚æ•°è¯´æ˜Ž     *soft_spi_obj   è½¯ä»¶ SPI æŒ‡å®šä¿¡æ¯å­˜æ”¾ç»“æž„ä½“çš„æŒ‡é’ˆ
+// å‚æ•°è¯´æ˜Ž     data            æ•°æ®
+// è¿”å›žå‚æ•°     uint16          è¯»å–çš„æ•°æ®
+// ä½¿ç”¨ç¤ºä¾‹     soft_spi_16bit_data_handler(soft_spi_obj, 1);
+// å¤‡æ³¨ä¿¡æ¯     å†…éƒ¨è°ƒç”¨
 //-------------------------------------------------------------------------------------------------------------------
 static uint16 soft_spi_16bit_data_handler (soft_spi_info_struct *soft_spi_obj, const uint16 data)
 {
@@ -148,16 +148,16 @@ static uint16 soft_spi_16bit_data_handler (soft_spi_info_struct *soft_spi_obj, c
         gpio_low(soft_spi_obj->cs_pin);
     }
 
-    if(0 == soft_spi_obj->config.mode || 1 == soft_spi_obj->config.mode)        // CPOL = 0 SCK ¿ÕÏÐµÍµçÆ½
+    if(0 == soft_spi_obj->config.mode || 1 == soft_spi_obj->config.mode)        // CPOL = 0 SCK ç©ºé—²ä½Žç”µå¹³
     {
         gpio_low(soft_spi_obj->sck_pin);
     }
-    else                                                                        // CPOL = 1 SCK ¿ÕÏÐ¸ßµçÆ½
+    else                                                                        // CPOL = 1 SCK ç©ºé—²é«˜ç”µå¹³
     {
         gpio_high(soft_spi_obj->sck_pin);
     }
 
-    if(0 == soft_spi_obj->config.mode % 2)                                      // CPHA = 0 µÚÒ»¸ö±ßÑØ²ÉÑù
+    if(0 == soft_spi_obj->config.mode % 2)                                      // CPHA = 0 ç¬¬ä¸€ä¸ªè¾¹æ²¿é‡‡æ ·
     {
         for(temp = 16; 0 < temp; temp --)
         {
@@ -181,7 +181,7 @@ static uint16 soft_spi_16bit_data_handler (soft_spi_info_struct *soft_spi_obj, c
             gpio_toggle_level(soft_spi_obj->sck_pin);
         }
     }
-    else                                                                        // CPHA = 1 µÚ¶þ¸ö±ßÑØ²ÉÑù
+    else                                                                        // CPHA = 1 ç¬¬äºŒä¸ªè¾¹æ²¿é‡‡æ ·
     {
         for(temp = 16; 0 < temp; temp --)
         {
@@ -214,12 +214,12 @@ static uint16 soft_spi_16bit_data_handler (soft_spi_info_struct *soft_spi_obj, c
 }
 
 //-------------------------------------------------------------------------------------------------------------------
-// º¯Êý¼ò½é     Èí¼þ SPI ½Ó¿ÚÐ´ 8bit Êý¾Ý
-// ²ÎÊýËµÃ÷     *soft_spi_obj   Èí¼þ SPI Ö¸¶¨ÐÅÏ¢´æ·Å½á¹¹ÌåµÄÖ¸Õë
-// ²ÎÊýËµÃ÷     data            ·¢ËÍµÄÊý¾Ý
-// ·µ»Ø²ÎÊý     void
-// Ê¹ÓÃÊ¾Àý     soft_spi_write_8bit(&soft_spi_obj, 1);
-// ±¸×¢ÐÅÏ¢
+// å‡½æ•°ç®€ä»‹     è½¯ä»¶ SPI æŽ¥å£å†™ 8bit æ•°æ®
+// å‚æ•°è¯´æ˜Ž     *soft_spi_obj   è½¯ä»¶ SPI æŒ‡å®šä¿¡æ¯å­˜æ”¾ç»“æž„ä½“çš„æŒ‡é’ˆ
+// å‚æ•°è¯´æ˜Ž     data            å‘é€çš„æ•°æ®
+// è¿”å›žå‚æ•°     void
+// ä½¿ç”¨ç¤ºä¾‹     soft_spi_write_8bit(&soft_spi_obj, 1);
+// å¤‡æ³¨ä¿¡æ¯
 //-------------------------------------------------------------------------------------------------------------------
 void soft_spi_write_8bit (soft_spi_info_struct *soft_spi_obj, const uint8 data)
 {
@@ -227,13 +227,13 @@ void soft_spi_write_8bit (soft_spi_info_struct *soft_spi_obj, const uint8 data)
 }
 
 //-------------------------------------------------------------------------------------------------------------------
-// º¯Êý¼ò½é     Èí¼þ SPI ½Ó¿ÚÐ´ 8bit Êý×é
-// ²ÎÊýËµÃ÷     *soft_spi_obj   Èí¼þ SPI Ö¸¶¨ÐÅÏ¢´æ·Å½á¹¹ÌåµÄÖ¸Õë
-// ²ÎÊýËµÃ÷     *data           Êý¾Ý´æ·Å»º³åÇø
-// ²ÎÊýËµÃ÷     len             »º³åÇø³¤¶È
-// ·µ»Ø²ÎÊý     void
-// Ê¹ÓÃÊ¾Àý     soft_spi_write_8bit_array(&soft_spi_obj, buf, 16);
-// ±¸×¢ÐÅÏ¢
+// å‡½æ•°ç®€ä»‹     è½¯ä»¶ SPI æŽ¥å£å†™ 8bit æ•°ç»„
+// å‚æ•°è¯´æ˜Ž     *soft_spi_obj   è½¯ä»¶ SPI æŒ‡å®šä¿¡æ¯å­˜æ”¾ç»“æž„ä½“çš„æŒ‡é’ˆ
+// å‚æ•°è¯´æ˜Ž     *data           æ•°æ®å­˜æ”¾ç¼“å†²åŒº
+// å‚æ•°è¯´æ˜Ž     len             ç¼“å†²åŒºé•¿åº¦
+// è¿”å›žå‚æ•°     void
+// ä½¿ç”¨ç¤ºä¾‹     soft_spi_write_8bit_array(&soft_spi_obj, buf, 16);
+// å¤‡æ³¨ä¿¡æ¯
 //-------------------------------------------------------------------------------------------------------------------
 void soft_spi_write_8bit_array (soft_spi_info_struct *soft_spi_obj, const uint8 *data, uint32 len)
 {
@@ -244,12 +244,12 @@ void soft_spi_write_8bit_array (soft_spi_info_struct *soft_spi_obj, const uint8 
 }
 
 //-------------------------------------------------------------------------------------------------------------------
-// º¯Êý¼ò½é     Èí¼þ SPI ½Ó¿ÚÐ´ 16bit Êý¾Ý
-// ²ÎÊýËµÃ÷     *soft_spi_obj   Èí¼þ SPI Ö¸¶¨ÐÅÏ¢´æ·Å½á¹¹ÌåµÄÖ¸Õë
-// ²ÎÊýËµÃ÷     data            ·¢ËÍµÄÊý¾Ý
-// ·µ»Ø²ÎÊý     void
-// Ê¹ÓÃÊ¾Àý     soft_spi_write_16bit(&soft_spi_obj, 1);
-// ±¸×¢ÐÅÏ¢
+// å‡½æ•°ç®€ä»‹     è½¯ä»¶ SPI æŽ¥å£å†™ 16bit æ•°æ®
+// å‚æ•°è¯´æ˜Ž     *soft_spi_obj   è½¯ä»¶ SPI æŒ‡å®šä¿¡æ¯å­˜æ”¾ç»“æž„ä½“çš„æŒ‡é’ˆ
+// å‚æ•°è¯´æ˜Ž     data            å‘é€çš„æ•°æ®
+// è¿”å›žå‚æ•°     void
+// ä½¿ç”¨ç¤ºä¾‹     soft_spi_write_16bit(&soft_spi_obj, 1);
+// å¤‡æ³¨ä¿¡æ¯
 //-------------------------------------------------------------------------------------------------------------------
 void soft_spi_write_16bit (soft_spi_info_struct *soft_spi_obj, uint16 data)
 {
@@ -257,13 +257,13 @@ void soft_spi_write_16bit (soft_spi_info_struct *soft_spi_obj, uint16 data)
 }
 
 //-------------------------------------------------------------------------------------------------------------------
-// º¯Êý¼ò½é     Èí¼þ SPI ½Ó¿ÚÐ´ 16bit Êý×é
-// ²ÎÊýËµÃ÷     *soft_spi_obj   Èí¼þ SPI Ö¸¶¨ÐÅÏ¢´æ·Å½á¹¹ÌåµÄÖ¸Õë
-// ²ÎÊýËµÃ÷     *data           Êý¾Ý´æ·Å»º³åÇø
-// ²ÎÊýËµÃ÷     len             »º³åÇø³¤¶È
-// ·µ»Ø²ÎÊý     void
-// Ê¹ÓÃÊ¾Àý     soft_spi_write_16bit_array(&soft_spi_obj, buf, 16);
-// ±¸×¢ÐÅÏ¢
+// å‡½æ•°ç®€ä»‹     è½¯ä»¶ SPI æŽ¥å£å†™ 16bit æ•°ç»„
+// å‚æ•°è¯´æ˜Ž     *soft_spi_obj   è½¯ä»¶ SPI æŒ‡å®šä¿¡æ¯å­˜æ”¾ç»“æž„ä½“çš„æŒ‡é’ˆ
+// å‚æ•°è¯´æ˜Ž     *data           æ•°æ®å­˜æ”¾ç¼“å†²åŒº
+// å‚æ•°è¯´æ˜Ž     len             ç¼“å†²åŒºé•¿åº¦
+// è¿”å›žå‚æ•°     void
+// ä½¿ç”¨ç¤ºä¾‹     soft_spi_write_16bit_array(&soft_spi_obj, buf, 16);
+// å¤‡æ³¨ä¿¡æ¯
 //-------------------------------------------------------------------------------------------------------------------
 void soft_spi_write_16bit_array (soft_spi_info_struct *soft_spi_obj, const uint16 *data, uint32 len)
 {
@@ -274,13 +274,13 @@ void soft_spi_write_16bit_array (soft_spi_info_struct *soft_spi_obj, const uint1
 }
 
 //-------------------------------------------------------------------------------------------------------------------
-// º¯Êý¼ò½é     Èí¼þ SPI ½Ó¿ÚÏò´«¸ÐÆ÷µÄ¼Ä´æÆ÷Ð´ 8bit Êý¾Ý
-// ²ÎÊýËµÃ÷     *soft_spi_obj   Èí¼þ SPI Ö¸¶¨ÐÅÏ¢´æ·Å½á¹¹ÌåµÄÖ¸Õë
-// ²ÎÊýËµÃ÷     register_name   ¼Ä´æÆ÷µØÖ·
-// ²ÎÊýËµÃ÷     data            ·¢ËÍµÄÊý¾Ý
-// ·µ»Ø²ÎÊý     void
-// Ê¹ÓÃÊ¾Àý     soft_spi_write_8bit_register(&soft_spi_obj, 1, 1);
-// ±¸×¢ÐÅÏ¢
+// å‡½æ•°ç®€ä»‹     è½¯ä»¶ SPI æŽ¥å£å‘ä¼ æ„Ÿå™¨çš„å¯„å­˜å™¨å†™ 8bit æ•°æ®
+// å‚æ•°è¯´æ˜Ž     *soft_spi_obj   è½¯ä»¶ SPI æŒ‡å®šä¿¡æ¯å­˜æ”¾ç»“æž„ä½“çš„æŒ‡é’ˆ
+// å‚æ•°è¯´æ˜Ž     register_name   å¯„å­˜å™¨åœ°å€
+// å‚æ•°è¯´æ˜Ž     data            å‘é€çš„æ•°æ®
+// è¿”å›žå‚æ•°     void
+// ä½¿ç”¨ç¤ºä¾‹     soft_spi_write_8bit_register(&soft_spi_obj, 1, 1);
+// å¤‡æ³¨ä¿¡æ¯
 //-------------------------------------------------------------------------------------------------------------------
 void soft_spi_write_8bit_register (soft_spi_info_struct *soft_spi_obj, const uint8 register_name, const uint8 data)
 {
@@ -289,13 +289,13 @@ void soft_spi_write_8bit_register (soft_spi_info_struct *soft_spi_obj, const uin
 }
 
 //-------------------------------------------------------------------------------------------------------------------
-// º¯Êý¼ò½é     Èí¼þ SPI ½Ó¿ÚÏò´«¸ÐÆ÷µÄ¼Ä´æÆ÷Ð´ 8bit Êý×é
-// ²ÎÊýËµÃ÷     *soft_spi_obj   Èí¼þ SPI Ö¸¶¨ÐÅÏ¢´æ·Å½á¹¹ÌåµÄÖ¸Õë
-// ²ÎÊýËµÃ÷     register_name   ¼Ä´æÆ÷µØÖ·
-// ²ÎÊýËµÃ÷     *data           Êý¾Ý´æ·Å»º³åÇø
-// ²ÎÊýËµÃ÷     len             »º³åÇø³¤¶È
-// ·µ»Ø²ÎÊý     void
-// Ê¹ÓÃÊ¾Àý     soft_spi_write_8bit_registers(&soft_spi_obj, 1, buf, 16);
+// å‡½æ•°ç®€ä»‹     è½¯ä»¶ SPI æŽ¥å£å‘ä¼ æ„Ÿå™¨çš„å¯„å­˜å™¨å†™ 8bit æ•°ç»„
+// å‚æ•°è¯´æ˜Ž     *soft_spi_obj   è½¯ä»¶ SPI æŒ‡å®šä¿¡æ¯å­˜æ”¾ç»“æž„ä½“çš„æŒ‡é’ˆ
+// å‚æ•°è¯´æ˜Ž     register_name   å¯„å­˜å™¨åœ°å€
+// å‚æ•°è¯´æ˜Ž     *data           æ•°æ®å­˜æ”¾ç¼“å†²åŒº
+// å‚æ•°è¯´æ˜Ž     len             ç¼“å†²åŒºé•¿åº¦
+// è¿”å›žå‚æ•°     void
+// ä½¿ç”¨ç¤ºä¾‹     soft_spi_write_8bit_registers(&soft_spi_obj, 1, buf, 16);
 //-------------------------------------------------------------------------------------------------------------------
 void soft_spi_write_8bit_registers (soft_spi_info_struct *soft_spi_obj, const uint8 register_name, const uint8 *data, uint32 len)
 {
@@ -307,13 +307,13 @@ void soft_spi_write_8bit_registers (soft_spi_info_struct *soft_spi_obj, const ui
 }
 
 //-------------------------------------------------------------------------------------------------------------------
-// º¯Êý¼ò½é     Èí¼þ SPI ½Ó¿ÚÏò´«¸ÐÆ÷µÄ¼Ä´æÆ÷Ð´ 16bit Êý¾Ý
-// ²ÎÊýËµÃ÷     *soft_spi_obj   Èí¼þ SPI Ö¸¶¨ÐÅÏ¢´æ·Å½á¹¹ÌåµÄÖ¸Õë
-// ²ÎÊýËµÃ÷     register_name   ¼Ä´æÆ÷µØÖ·
-// ²ÎÊýËµÃ÷     data            ·¢ËÍµÄÊý¾Ý
-// ·µ»Ø²ÎÊý     void
-// Ê¹ÓÃÊ¾Àý     soft_spi_write_16bit_register(&soft_spi_obj, 1, 1);
-// ±¸×¢ÐÅÏ¢
+// å‡½æ•°ç®€ä»‹     è½¯ä»¶ SPI æŽ¥å£å‘ä¼ æ„Ÿå™¨çš„å¯„å­˜å™¨å†™ 16bit æ•°æ®
+// å‚æ•°è¯´æ˜Ž     *soft_spi_obj   è½¯ä»¶ SPI æŒ‡å®šä¿¡æ¯å­˜æ”¾ç»“æž„ä½“çš„æŒ‡é’ˆ
+// å‚æ•°è¯´æ˜Ž     register_name   å¯„å­˜å™¨åœ°å€
+// å‚æ•°è¯´æ˜Ž     data            å‘é€çš„æ•°æ®
+// è¿”å›žå‚æ•°     void
+// ä½¿ç”¨ç¤ºä¾‹     soft_spi_write_16bit_register(&soft_spi_obj, 1, 1);
+// å¤‡æ³¨ä¿¡æ¯
 //-------------------------------------------------------------------------------------------------------------------
 void soft_spi_write_16bit_register (soft_spi_info_struct *soft_spi_obj, const uint16 register_name, uint16 data)
 {
@@ -322,14 +322,14 @@ void soft_spi_write_16bit_register (soft_spi_info_struct *soft_spi_obj, const ui
 }
 
 //-------------------------------------------------------------------------------------------------------------------
-// º¯Êý¼ò½é     Èí¼þ SPI ½Ó¿ÚÏò´«¸ÐÆ÷µÄ¼Ä´æÆ÷Ð´ 16bit Êý×é
-// ²ÎÊýËµÃ÷     *soft_spi_obj   Èí¼þ SPI Ö¸¶¨ÐÅÏ¢´æ·Å½á¹¹ÌåµÄÖ¸Õë
-// ²ÎÊýËµÃ÷     register_name   ¼Ä´æÆ÷µØÖ·
-// ²ÎÊýËµÃ÷     *data           Êý¾Ý´æ·Å»º³åÇø
-// ²ÎÊýËµÃ÷     len             »º³åÇø³¤¶È
-// ·µ»Ø²ÎÊý     void
-// Ê¹ÓÃÊ¾Àý     soft_spi_write_16bit_registers(&soft_spi_obj, 1, buf, 16);
-// ±¸×¢ÐÅÏ¢
+// å‡½æ•°ç®€ä»‹     è½¯ä»¶ SPI æŽ¥å£å‘ä¼ æ„Ÿå™¨çš„å¯„å­˜å™¨å†™ 16bit æ•°ç»„
+// å‚æ•°è¯´æ˜Ž     *soft_spi_obj   è½¯ä»¶ SPI æŒ‡å®šä¿¡æ¯å­˜æ”¾ç»“æž„ä½“çš„æŒ‡é’ˆ
+// å‚æ•°è¯´æ˜Ž     register_name   å¯„å­˜å™¨åœ°å€
+// å‚æ•°è¯´æ˜Ž     *data           æ•°æ®å­˜æ”¾ç¼“å†²åŒº
+// å‚æ•°è¯´æ˜Ž     len             ç¼“å†²åŒºé•¿åº¦
+// è¿”å›žå‚æ•°     void
+// ä½¿ç”¨ç¤ºä¾‹     soft_spi_write_16bit_registers(&soft_spi_obj, 1, buf, 16);
+// å¤‡æ³¨ä¿¡æ¯
 //-------------------------------------------------------------------------------------------------------------------
 void soft_spi_write_16bit_registers (soft_spi_info_struct *soft_spi_obj, const uint16 register_name, const uint16 *data, uint32 len)
 {
@@ -341,12 +341,12 @@ void soft_spi_write_16bit_registers (soft_spi_info_struct *soft_spi_obj, const u
 }
 
 //-------------------------------------------------------------------------------------------------------------------
-// º¯Êý¼ò½é     Èí¼þ SPI ½Ó¿Ú¶Á 8bit Êý¾Ý
-// ²ÎÊýËµÃ÷     *soft_spi_obj   Èí¼þ SPI Ö¸¶¨ÐÅÏ¢´æ·Å½á¹¹ÌåµÄÖ¸Õë
-// ²ÎÊýËµÃ÷     data            ·¢ËÍµÄÊý¾Ý
-// ·µ»Ø²ÎÊý     uint8           ·µ»Ø¶ÁÈ¡µÄ 8bit Êý¾Ý
-// Ê¹ÓÃÊ¾Àý     soft_spi_read_8bit(&soft_spi_obj);
-// ±¸×¢ÐÅÏ¢
+// å‡½æ•°ç®€ä»‹     è½¯ä»¶ SPI æŽ¥å£è¯» 8bit æ•°æ®
+// å‚æ•°è¯´æ˜Ž     *soft_spi_obj   è½¯ä»¶ SPI æŒ‡å®šä¿¡æ¯å­˜æ”¾ç»“æž„ä½“çš„æŒ‡é’ˆ
+// å‚æ•°è¯´æ˜Ž     data            å‘é€çš„æ•°æ®
+// è¿”å›žå‚æ•°     uint8           è¿”å›žè¯»å–çš„ 8bit æ•°æ®
+// ä½¿ç”¨ç¤ºä¾‹     soft_spi_read_8bit(&soft_spi_obj);
+// å¤‡æ³¨ä¿¡æ¯
 //-------------------------------------------------------------------------------------------------------------------
 uint8 soft_spi_read_8bit (soft_spi_info_struct *soft_spi_obj)
 {
@@ -354,13 +354,13 @@ uint8 soft_spi_read_8bit (soft_spi_info_struct *soft_spi_obj)
 }
 
 //-------------------------------------------------------------------------------------------------------------------
-// º¯Êý¼ò½é     Èí¼þ SPI ½Ó¿Ú¶Á 8bit Êý×é
-// ²ÎÊýËµÃ÷     *soft_spi_obj   Èí¼þ SPI Ö¸¶¨ÐÅÏ¢´æ·Å½á¹¹ÌåµÄÖ¸Õë
-// ²ÎÊýËµÃ÷     *data           Êý¾Ý´æ·Å»º³åÇø
-// ²ÎÊýËµÃ÷     len             »º³åÇø³¤¶È
-// ·µ»Ø²ÎÊý     void
-// Ê¹ÓÃÊ¾Àý     soft_spi_read_8bit_array(&soft_spi_obj, buf, 16);
-// ±¸×¢ÐÅÏ¢
+// å‡½æ•°ç®€ä»‹     è½¯ä»¶ SPI æŽ¥å£è¯» 8bit æ•°ç»„
+// å‚æ•°è¯´æ˜Ž     *soft_spi_obj   è½¯ä»¶ SPI æŒ‡å®šä¿¡æ¯å­˜æ”¾ç»“æž„ä½“çš„æŒ‡é’ˆ
+// å‚æ•°è¯´æ˜Ž     *data           æ•°æ®å­˜æ”¾ç¼“å†²åŒº
+// å‚æ•°è¯´æ˜Ž     len             ç¼“å†²åŒºé•¿åº¦
+// è¿”å›žå‚æ•°     void
+// ä½¿ç”¨ç¤ºä¾‹     soft_spi_read_8bit_array(&soft_spi_obj, buf, 16);
+// å¤‡æ³¨ä¿¡æ¯
 //-------------------------------------------------------------------------------------------------------------------
 void soft_spi_read_8bit_array (soft_spi_info_struct *soft_spi_obj, uint8 *data, uint32 len)
 {
@@ -371,12 +371,12 @@ void soft_spi_read_8bit_array (soft_spi_info_struct *soft_spi_obj, uint8 *data, 
 }
 
 //-------------------------------------------------------------------------------------------------------------------
-// º¯Êý¼ò½é     Èí¼þ SPI ½Ó¿Ú¶Á 16bit Êý¾Ý
-// ²ÎÊýËµÃ÷     *soft_spi_obj   Èí¼þ SPI Ö¸¶¨ÐÅÏ¢´æ·Å½á¹¹ÌåµÄÖ¸Õë
-// ²ÎÊýËµÃ÷     data            ·¢ËÍµÄÊý¾Ý
-// ·µ»Ø²ÎÊý     uint16          ·µ»Ø¶ÁÈ¡µÄ 16bit Êý¾Ý
-// Ê¹ÓÃÊ¾Àý     soft_spi_read_16bit(&soft_spi_obj);
-// ±¸×¢ÐÅÏ¢
+// å‡½æ•°ç®€ä»‹     è½¯ä»¶ SPI æŽ¥å£è¯» 16bit æ•°æ®
+// å‚æ•°è¯´æ˜Ž     *soft_spi_obj   è½¯ä»¶ SPI æŒ‡å®šä¿¡æ¯å­˜æ”¾ç»“æž„ä½“çš„æŒ‡é’ˆ
+// å‚æ•°è¯´æ˜Ž     data            å‘é€çš„æ•°æ®
+// è¿”å›žå‚æ•°     uint16          è¿”å›žè¯»å–çš„ 16bit æ•°æ®
+// ä½¿ç”¨ç¤ºä¾‹     soft_spi_read_16bit(&soft_spi_obj);
+// å¤‡æ³¨ä¿¡æ¯
 //-------------------------------------------------------------------------------------------------------------------
 uint16 soft_spi_read_16bit (soft_spi_info_struct *soft_spi_obj)
 {
@@ -384,13 +384,13 @@ uint16 soft_spi_read_16bit (soft_spi_info_struct *soft_spi_obj)
 }
 
 //-------------------------------------------------------------------------------------------------------------------
-// º¯Êý¼ò½é     Èí¼þ SPI ½Ó¿Ú¶Á 16bit Êý×é
-// ²ÎÊýËµÃ÷     *soft_spi_obj   Èí¼þ SPI Ö¸¶¨ÐÅÏ¢´æ·Å½á¹¹ÌåµÄÖ¸Õë
-// ²ÎÊýËµÃ÷     *data           Êý¾Ý´æ·Å»º³åÇø
-// ²ÎÊýËµÃ÷     len             »º³åÇø³¤¶È
-// ·µ»Ø²ÎÊý     void
-// Ê¹ÓÃÊ¾Àý     soft_spi_read_16bit_array(&soft_spi_obj, buf, 16);
-// ±¸×¢ÐÅÏ¢
+// å‡½æ•°ç®€ä»‹     è½¯ä»¶ SPI æŽ¥å£è¯» 16bit æ•°ç»„
+// å‚æ•°è¯´æ˜Ž     *soft_spi_obj   è½¯ä»¶ SPI æŒ‡å®šä¿¡æ¯å­˜æ”¾ç»“æž„ä½“çš„æŒ‡é’ˆ
+// å‚æ•°è¯´æ˜Ž     *data           æ•°æ®å­˜æ”¾ç¼“å†²åŒº
+// å‚æ•°è¯´æ˜Ž     len             ç¼“å†²åŒºé•¿åº¦
+// è¿”å›žå‚æ•°     void
+// ä½¿ç”¨ç¤ºä¾‹     soft_spi_read_16bit_array(&soft_spi_obj, buf, 16);
+// å¤‡æ³¨ä¿¡æ¯
 //-------------------------------------------------------------------------------------------------------------------
 void soft_spi_read_16bit_array (soft_spi_info_struct *soft_spi_obj, uint16 *data, uint32 len)
 {
@@ -401,13 +401,13 @@ void soft_spi_read_16bit_array (soft_spi_info_struct *soft_spi_obj, uint16 *data
 }
 
 //-------------------------------------------------------------------------------------------------------------------
-// º¯Êý¼ò½é     Èí¼þ SPI ½Ó¿Ú´Ó´«¸ÐÆ÷µÄ¼Ä´æÆ÷¶Á 8bit Êý¾Ý
-// ²ÎÊýËµÃ÷     *soft_spi_obj   Èí¼þ SPI Ö¸¶¨ÐÅÏ¢´æ·Å½á¹¹ÌåµÄÖ¸Õë
-// ²ÎÊýËµÃ÷     register_name   ¼Ä´æÆ÷µØÖ·
-// ²ÎÊýËµÃ÷     data            ·¢ËÍµÄÊý¾Ý
-// ·µ»Ø²ÎÊý     uint8           ·µ»Ø¶ÁÈ¡µÄ 8bit Êý¾Ý
-// Ê¹ÓÃÊ¾Àý     soft_spi_read_8bit_register(&soft_spi_obj, 0x01, 0x01);
-// ±¸×¢ÐÅÏ¢
+// å‡½æ•°ç®€ä»‹     è½¯ä»¶ SPI æŽ¥å£ä»Žä¼ æ„Ÿå™¨çš„å¯„å­˜å™¨è¯» 8bit æ•°æ®
+// å‚æ•°è¯´æ˜Ž     *soft_spi_obj   è½¯ä»¶ SPI æŒ‡å®šä¿¡æ¯å­˜æ”¾ç»“æž„ä½“çš„æŒ‡é’ˆ
+// å‚æ•°è¯´æ˜Ž     register_name   å¯„å­˜å™¨åœ°å€
+// å‚æ•°è¯´æ˜Ž     data            å‘é€çš„æ•°æ®
+// è¿”å›žå‚æ•°     uint8           è¿”å›žè¯»å–çš„ 8bit æ•°æ®
+// ä½¿ç”¨ç¤ºä¾‹     soft_spi_read_8bit_register(&soft_spi_obj, 0x01, 0x01);
+// å¤‡æ³¨ä¿¡æ¯
 //-------------------------------------------------------------------------------------------------------------------
 uint8 soft_spi_read_8bit_register (soft_spi_info_struct *soft_spi_obj, const uint8 register_name)
 {
@@ -416,14 +416,14 @@ uint8 soft_spi_read_8bit_register (soft_spi_info_struct *soft_spi_obj, const uin
 }
 
 //-------------------------------------------------------------------------------------------------------------------
-// º¯Êý¼ò½é     Èí¼þ SPI ½Ó¿Ú´Ó´«¸ÐÆ÷µÄ¼Ä´æÆ÷¶Á 8bit Êý×é
-// ²ÎÊýËµÃ÷     *soft_spi_obj   Èí¼þ SPI Ö¸¶¨ÐÅÏ¢´æ·Å½á¹¹ÌåµÄÖ¸Õë
-// ²ÎÊýËµÃ÷     register_name   ¼Ä´æÆ÷µØÖ·
-// ²ÎÊýËµÃ÷     *data           Êý¾Ý´æ·Å»º³åÇø
-// ²ÎÊýËµÃ÷     len             »º³åÇø³¤¶È
-// ·µ»Ø²ÎÊý     void
-// Ê¹ÓÃÊ¾Àý     soft_spi_read_8bit_registers(&soft_spi_obj, 0x01, buf, 16);
-// ±¸×¢ÐÅÏ¢
+// å‡½æ•°ç®€ä»‹     è½¯ä»¶ SPI æŽ¥å£ä»Žä¼ æ„Ÿå™¨çš„å¯„å­˜å™¨è¯» 8bit æ•°ç»„
+// å‚æ•°è¯´æ˜Ž     *soft_spi_obj   è½¯ä»¶ SPI æŒ‡å®šä¿¡æ¯å­˜æ”¾ç»“æž„ä½“çš„æŒ‡é’ˆ
+// å‚æ•°è¯´æ˜Ž     register_name   å¯„å­˜å™¨åœ°å€
+// å‚æ•°è¯´æ˜Ž     *data           æ•°æ®å­˜æ”¾ç¼“å†²åŒº
+// å‚æ•°è¯´æ˜Ž     len             ç¼“å†²åŒºé•¿åº¦
+// è¿”å›žå‚æ•°     void
+// ä½¿ç”¨ç¤ºä¾‹     soft_spi_read_8bit_registers(&soft_spi_obj, 0x01, buf, 16);
+// å¤‡æ³¨ä¿¡æ¯
 //-------------------------------------------------------------------------------------------------------------------
 void soft_spi_read_8bit_registers (soft_spi_info_struct *soft_spi_obj, const uint8 register_name, uint8 *data, uint32 len)
 {
@@ -435,13 +435,13 @@ void soft_spi_read_8bit_registers (soft_spi_info_struct *soft_spi_obj, const uin
 }
 
 //-------------------------------------------------------------------------------------------------------------------
-// º¯Êý¼ò½é     Èí¼þ SPI ½Ó¿Ú´Ó´«¸ÐÆ÷µÄ¼Ä´æÆ÷¶Á 16bit Êý¾Ý
-// ²ÎÊýËµÃ÷     *soft_spi_obj   Èí¼þ SPI Ö¸¶¨ÐÅÏ¢´æ·Å½á¹¹ÌåµÄÖ¸Õë
-// ²ÎÊýËµÃ÷     register_name   ¼Ä´æÆ÷µØÖ·
-// ²ÎÊýËµÃ÷     data            ·¢ËÍµÄÊý¾Ý
-// ·µ»Ø²ÎÊý     uint16          ·µ»Ø¶ÁÈ¡µÄ 16bit Êý¾Ý
-// Ê¹ÓÃÊ¾Àý     soft_spi_read_16bit_register(&soft_spi_obj, 0x0101);
-// ±¸×¢ÐÅÏ¢
+// å‡½æ•°ç®€ä»‹     è½¯ä»¶ SPI æŽ¥å£ä»Žä¼ æ„Ÿå™¨çš„å¯„å­˜å™¨è¯» 16bit æ•°æ®
+// å‚æ•°è¯´æ˜Ž     *soft_spi_obj   è½¯ä»¶ SPI æŒ‡å®šä¿¡æ¯å­˜æ”¾ç»“æž„ä½“çš„æŒ‡é’ˆ
+// å‚æ•°è¯´æ˜Ž     register_name   å¯„å­˜å™¨åœ°å€
+// å‚æ•°è¯´æ˜Ž     data            å‘é€çš„æ•°æ®
+// è¿”å›žå‚æ•°     uint16          è¿”å›žè¯»å–çš„ 16bit æ•°æ®
+// ä½¿ç”¨ç¤ºä¾‹     soft_spi_read_16bit_register(&soft_spi_obj, 0x0101);
+// å¤‡æ³¨ä¿¡æ¯
 //-------------------------------------------------------------------------------------------------------------------
 uint16 soft_spi_read_16bit_register (soft_spi_info_struct *soft_spi_obj, const uint16 register_name)
 {
@@ -450,14 +450,14 @@ uint16 soft_spi_read_16bit_register (soft_spi_info_struct *soft_spi_obj, const u
 }
 
 //-------------------------------------------------------------------------------------------------------------------
-// º¯Êý¼ò½é     Èí¼þ SPI ½Ó¿Ú´Ó´«¸ÐÆ÷µÄ¼Ä´æÆ÷¶Á 16bit Êý×é
-// ²ÎÊýËµÃ÷     *soft_spi_obj   Èí¼þ SPI Ö¸¶¨ÐÅÏ¢´æ·Å½á¹¹ÌåµÄÖ¸Õë
-// ²ÎÊýËµÃ÷     register_name   ¼Ä´æÆ÷µØÖ·
-// ²ÎÊýËµÃ÷     *data           Êý¾Ý´æ·Å»º³åÇø
-// ²ÎÊýËµÃ÷     len             »º³åÇø³¤¶È
-// ·µ»Ø²ÎÊý     void
-// Ê¹ÓÃÊ¾Àý     soft_spi_read_16bit_registers(&soft_spi_obj, 0x0101, buf, 16);
-// ±¸×¢ÐÅÏ¢
+// å‡½æ•°ç®€ä»‹     è½¯ä»¶ SPI æŽ¥å£ä»Žä¼ æ„Ÿå™¨çš„å¯„å­˜å™¨è¯» 16bit æ•°ç»„
+// å‚æ•°è¯´æ˜Ž     *soft_spi_obj   è½¯ä»¶ SPI æŒ‡å®šä¿¡æ¯å­˜æ”¾ç»“æž„ä½“çš„æŒ‡é’ˆ
+// å‚æ•°è¯´æ˜Ž     register_name   å¯„å­˜å™¨åœ°å€
+// å‚æ•°è¯´æ˜Ž     *data           æ•°æ®å­˜æ”¾ç¼“å†²åŒº
+// å‚æ•°è¯´æ˜Ž     len             ç¼“å†²åŒºé•¿åº¦
+// è¿”å›žå‚æ•°     void
+// ä½¿ç”¨ç¤ºä¾‹     soft_spi_read_16bit_registers(&soft_spi_obj, 0x0101, buf, 16);
+// å¤‡æ³¨ä¿¡æ¯
 //-------------------------------------------------------------------------------------------------------------------
 void soft_spi_read_16bit_registers (soft_spi_info_struct *soft_spi_obj, const uint16 register_name, uint16 *data, uint32 len)
 {
@@ -469,14 +469,14 @@ void soft_spi_read_16bit_registers (soft_spi_info_struct *soft_spi_obj, const ui
 }
 
 //-------------------------------------------------------------------------------------------------------------------
-// º¯Êý¼ò½é     Èí¼þ SPI 8bit Êý¾Ý´«Êä ·¢ËÍÓë½ÓÊÕÊý¾ÝÊÇÍ¬Ê±½øÐÐµÄ
-// ²ÎÊýËµÃ÷     *soft_spi_obj   Èí¼þ SPI Ö¸¶¨ÐÅÏ¢´æ·Å½á¹¹ÌåµÄÖ¸Õë
-// ²ÎÊýËµÃ÷     write_buffer    ·¢ËÍµÄÊý¾Ý»º³åÇøµØÖ·
-// ²ÎÊýËµÃ÷     read_buffer     ·¢ËÍÊý¾ÝÊ±½ÓÊÕµ½µÄÊý¾ÝµÄ´æ´¢µØÖ·(²»ÐèÒª½ÓÊÕÔò´« NULL)
-// ²ÎÊýËµÃ÷     len             ·¢ËÍµÄ×Ö½ÚÊý
-// ·µ»Ø²ÎÊý     void
-// Ê¹ÓÃÊ¾Àý     soft_spi_8bit_transfer(&soft_spi_obj, buf, buf, 1);
-// ±¸×¢ÐÅÏ¢
+// å‡½æ•°ç®€ä»‹     è½¯ä»¶ SPI 8bit æ•°æ®ä¼ è¾“ å‘é€ä¸ŽæŽ¥æ”¶æ•°æ®æ˜¯åŒæ—¶è¿›è¡Œçš„
+// å‚æ•°è¯´æ˜Ž     *soft_spi_obj   è½¯ä»¶ SPI æŒ‡å®šä¿¡æ¯å­˜æ”¾ç»“æž„ä½“çš„æŒ‡é’ˆ
+// å‚æ•°è¯´æ˜Ž     write_buffer    å‘é€çš„æ•°æ®ç¼“å†²åŒºåœ°å€
+// å‚æ•°è¯´æ˜Ž     read_buffer     å‘é€æ•°æ®æ—¶æŽ¥æ”¶åˆ°çš„æ•°æ®çš„å­˜å‚¨åœ°å€(ä¸éœ€è¦æŽ¥æ”¶åˆ™ä¼  NULL)
+// å‚æ•°è¯´æ˜Ž     len             å‘é€çš„å­—èŠ‚æ•°
+// è¿”å›žå‚æ•°     void
+// ä½¿ç”¨ç¤ºä¾‹     soft_spi_8bit_transfer(&soft_spi_obj, buf, buf, 1);
+// å¤‡æ³¨ä¿¡æ¯
 //-------------------------------------------------------------------------------------------------------------------
 void soft_spi_8bit_transfer (soft_spi_info_struct *soft_spi_obj, const uint8 *write_buffer, uint8 *read_buffer, uint32 len)
 {
@@ -489,14 +489,14 @@ void soft_spi_8bit_transfer (soft_spi_info_struct *soft_spi_obj, const uint8 *wr
 }
 
 //-------------------------------------------------------------------------------------------------------------------
-// º¯Êý¼ò½é     Èí¼þ SPI 16bit Êý¾Ý´«Êä ·¢ËÍÓë½ÓÊÕÊý¾ÝÊÇÍ¬Ê±½øÐÐµÄ
-// ²ÎÊýËµÃ÷     *soft_spi_obj   Èí¼þ SPI Ö¸¶¨ÐÅÏ¢´æ·Å½á¹¹ÌåµÄÖ¸Õë
-// ²ÎÊýËµÃ÷     write_buffer    ·¢ËÍµÄÊý¾Ý»º³åÇøµØÖ·
-// ²ÎÊýËµÃ÷     read_buffer     ·¢ËÍÊý¾ÝÊ±½ÓÊÕµ½µÄÊý¾ÝµÄ´æ´¢µØÖ·(²»ÐèÒª½ÓÊÕÔò´« NULL)
-// ²ÎÊýËµÃ÷     len             ·¢ËÍµÄ×Ö½ÚÊý
-// ·µ»Ø²ÎÊý     void
-// Ê¹ÓÃÊ¾Àý     soft_spi_16bit_transfer(&soft_spi_obj, buf, buf, 1);
-// ±¸×¢ÐÅÏ¢
+// å‡½æ•°ç®€ä»‹     è½¯ä»¶ SPI 16bit æ•°æ®ä¼ è¾“ å‘é€ä¸ŽæŽ¥æ”¶æ•°æ®æ˜¯åŒæ—¶è¿›è¡Œçš„
+// å‚æ•°è¯´æ˜Ž     *soft_spi_obj   è½¯ä»¶ SPI æŒ‡å®šä¿¡æ¯å­˜æ”¾ç»“æž„ä½“çš„æŒ‡é’ˆ
+// å‚æ•°è¯´æ˜Ž     write_buffer    å‘é€çš„æ•°æ®ç¼“å†²åŒºåœ°å€
+// å‚æ•°è¯´æ˜Ž     read_buffer     å‘é€æ•°æ®æ—¶æŽ¥æ”¶åˆ°çš„æ•°æ®çš„å­˜å‚¨åœ°å€(ä¸éœ€è¦æŽ¥æ”¶åˆ™ä¼  NULL)
+// å‚æ•°è¯´æ˜Ž     len             å‘é€çš„å­—èŠ‚æ•°
+// è¿”å›žå‚æ•°     void
+// ä½¿ç”¨ç¤ºä¾‹     soft_spi_16bit_transfer(&soft_spi_obj, buf, buf, 1);
+// å¤‡æ³¨ä¿¡æ¯
 //-------------------------------------------------------------------------------------------------------------------
 void soft_spi_16bit_transfer (soft_spi_info_struct *soft_spi_obj, const uint16 *write_buffer, uint16 *read_buffer, uint32 len)
 {
@@ -509,28 +509,28 @@ void soft_spi_16bit_transfer (soft_spi_info_struct *soft_spi_obj, const uint16 *
 }
 
 //-------------------------------------------------------------------------------------------------------------------
-// º¯Êý¼ò½é     Èí¼þ SPI ½Ó¿Ú³õÊ¼»¯
-// ²ÎÊýËµÃ÷     *soft_spi_obj   Èí¼þ SPI Ö¸¶¨ÐÅÏ¢´æ·Å½á¹¹ÌåµÄÖ¸Õë
-// ²ÎÊýËµÃ÷     mode            SPI Ä£Ê½ ²ÎÕÕ zf_driver_spi.h ÄÚ spi_mode_enum Ã¶¾ÙÌå¶¨Òå
-// ²ÎÊýËµÃ÷     delay           Èí¼þ SPI ÑÓÊ± ¾ÍÊÇÊ±ÖÓ¸ßµçÆ½Ê±¼ä Ô½¶Ì SPI ËÙÂÊÔ½¸ß
-// ²ÎÊýËµÃ÷     sck_pin         Ñ¡Ôñ SCK Òý½Å ²ÎÕÕ zf_driver_gpio.h ÄÚ gpio_pin_enum Ã¶¾ÙÌå¶¨Òå
-// ²ÎÊýËµÃ÷     mosi_pin        Ñ¡Ôñ MOSI Òý½Å ²ÎÕÕ zf_driver_gpio.h ÄÚ gpio_pin_enum Ã¶¾ÙÌå¶¨Òå
-// ²ÎÊýËµÃ÷     miso_pin        Ñ¡Ôñ MISO Òý½Å Èç¹û²»ÐèÒªÕâ¸öÒý½Å ¾ÍÌî SOFT_SPI_PIN_NULL
-// ²ÎÊýËµÃ÷     cs_pin          Ñ¡Ôñ CS Òý½Å Èç¹û²»ÐèÒªÕâ¸öÒý½Å ¾ÍÌî SOFT_SPI_PIN_NULL
-// ·µ»Ø²ÎÊý     void
-// Ê¹ÓÃÊ¾Àý     spi_init(SPI_1, 0, 1*1000*1000, A5, A7, A6, A4);
-// ±¸×¢ÐÅÏ¢
+// å‡½æ•°ç®€ä»‹     è½¯ä»¶ SPI æŽ¥å£åˆå§‹åŒ–
+// å‚æ•°è¯´æ˜Ž     *soft_spi_obj   è½¯ä»¶ SPI æŒ‡å®šä¿¡æ¯å­˜æ”¾ç»“æž„ä½“çš„æŒ‡é’ˆ
+// å‚æ•°è¯´æ˜Ž     mode            SPI æ¨¡å¼ å‚ç…§ zf_driver_spi.h å†… spi_mode_enum æžšä¸¾ä½“å®šä¹‰
+// å‚æ•°è¯´æ˜Ž     delay           è½¯ä»¶ SPI å»¶æ—¶ å°±æ˜¯æ—¶é’Ÿé«˜ç”µå¹³æ—¶é—´ è¶ŠçŸ­ SPI é€ŸçŽ‡è¶Šé«˜
+// å‚æ•°è¯´æ˜Ž     sck_pin         é€‰æ‹© SCK å¼•è„š å‚ç…§ zf_driver_gpio.h å†… gpio_pin_enum æžšä¸¾ä½“å®šä¹‰
+// å‚æ•°è¯´æ˜Ž     mosi_pin        é€‰æ‹© MOSI å¼•è„š å‚ç…§ zf_driver_gpio.h å†… gpio_pin_enum æžšä¸¾ä½“å®šä¹‰
+// å‚æ•°è¯´æ˜Ž     miso_pin        é€‰æ‹© MISO å¼•è„š å¦‚æžœä¸éœ€è¦è¿™ä¸ªå¼•è„š å°±å¡« SOFT_SPI_PIN_NULL
+// å‚æ•°è¯´æ˜Ž     cs_pin          é€‰æ‹© CS å¼•è„š å¦‚æžœä¸éœ€è¦è¿™ä¸ªå¼•è„š å°±å¡« SOFT_SPI_PIN_NULL
+// è¿”å›žå‚æ•°     void
+// ä½¿ç”¨ç¤ºä¾‹     spi_init(SPI_1, 0, 1*1000*1000, A5, A7, A6, A4);
+// å¤‡æ³¨ä¿¡æ¯
 //-------------------------------------------------------------------------------------------------------------------
 void soft_spi_init (soft_spi_info_struct *soft_spi_obj, uint8 mode, uint32 delay, gpio_pin_enum sck_pin, gpio_pin_enum mosi_pin, uint32 miso_pin, uint32 cs_pin)
 {
-    zf_assert(sck_pin != mosi_pin);                                             // sck_pin  Óë mosi_pin ÔõÃ´ÄÜÌîÍ¬Ò»¸öÒý½Å£¿
-    zf_assert(sck_pin != miso_pin);                                             // sck_pin  Óë miso_pin ÔõÃ´ÄÜÌîÍ¬Ò»¸öÒý½Å£¿
-    zf_assert(sck_pin != cs_pin);                                               // sck_pin  Óë cs_pin   ÔõÃ´ÄÜÌîÍ¬Ò»¸öÒý½Å£¿
-    zf_assert(mosi_pin != miso_pin);                                            // mosi_pin Óë miso_pin ÔõÃ´ÄÜÌîÍ¬Ò»¸öÒý½Å£¿
-    zf_assert(mosi_pin != cs_pin);                                              // mosi_pin Óë cs_pin   ÔõÃ´ÄÜÌîÍ¬Ò»¸öÒý½Å£¿
-    zf_assert((miso_pin != cs_pin) || (cs_pin == SOFT_SPI_PIN_NULL));           // miso_pin Óë cs_pin   ÔõÃ´ÄÜÌîÍ¬Ò»¸öÒý½Å£¿
+    zf_assert(sck_pin != mosi_pin);                                             // sck_pin  ä¸Ž mosi_pin æ€Žä¹ˆèƒ½å¡«åŒä¸€ä¸ªå¼•è„šï¼Ÿ
+    zf_assert(sck_pin != miso_pin);                                             // sck_pin  ä¸Ž miso_pin æ€Žä¹ˆèƒ½å¡«åŒä¸€ä¸ªå¼•è„šï¼Ÿ
+    zf_assert(sck_pin != cs_pin);                                               // sck_pin  ä¸Ž cs_pin   æ€Žä¹ˆèƒ½å¡«åŒä¸€ä¸ªå¼•è„šï¼Ÿ
+    zf_assert(mosi_pin != miso_pin);                                            // mosi_pin ä¸Ž miso_pin æ€Žä¹ˆèƒ½å¡«åŒä¸€ä¸ªå¼•è„šï¼Ÿ
+    zf_assert(mosi_pin != cs_pin);                                              // mosi_pin ä¸Ž cs_pin   æ€Žä¹ˆèƒ½å¡«åŒä¸€ä¸ªå¼•è„šï¼Ÿ
+    zf_assert((miso_pin != cs_pin) || (cs_pin == SOFT_SPI_PIN_NULL));           // miso_pin ä¸Ž cs_pin   æ€Žä¹ˆèƒ½å¡«åŒä¸€ä¸ªå¼•è„šï¼Ÿ
 
-    zf_assert(4 > mode);                                                        // ²ÎÕÕ zf_driver_spi.h ÄÚ spi_mode_enum Ã¶¾ÙÌå¶¨Òå
+    zf_assert(4 > mode);                                                        // å‚ç…§ zf_driver_spi.h å†… spi_mode_enum æžšä¸¾ä½“å®šä¹‰
 
     soft_spi_obj->config.mode = mode;
     soft_spi_obj->delay = delay;
@@ -539,13 +539,13 @@ void soft_spi_init (soft_spi_info_struct *soft_spi_obj, uint8 mode, uint32 delay
     soft_spi_obj->mosi_pin = mosi_pin;
     if(0 == mode || 1 == mode)
     {
-        gpio_init(sck_pin, GPO, GPIO_LOW, GPO_PUSH_PULL);                       // IO ³õÊ¼»¯
+        gpio_init(sck_pin, GPO, GPIO_LOW, GPO_PUSH_PULL);                       // IO åˆå§‹åŒ–
     }
     else
     {
-        gpio_init(sck_pin, GPO, GPIO_HIGH, GPO_PUSH_PULL);                      // IO ³õÊ¼»¯
+        gpio_init(sck_pin, GPO, GPIO_HIGH, GPO_PUSH_PULL);                      // IO åˆå§‹åŒ–
     }
-    gpio_init(mosi_pin, GPO, GPIO_HIGH, GPO_PUSH_PULL);                         // IO ³õÊ¼»¯
+    gpio_init(mosi_pin, GPO, GPIO_HIGH, GPO_PUSH_PULL);                         // IO åˆå§‹åŒ–
 
     if(SOFT_SPI_PIN_NULL == miso_pin)
     {
@@ -555,7 +555,7 @@ void soft_spi_init (soft_spi_info_struct *soft_spi_obj, uint8 mode, uint32 delay
     {
         soft_spi_obj->config.use_miso = 1;
         soft_spi_obj->miso_pin = (gpio_pin_enum)miso_pin;
-        gpio_init(soft_spi_obj->miso_pin, GPI, GPIO_HIGH, GPI_FLOATING_IN);     // IO ³õÊ¼»¯
+        gpio_init(soft_spi_obj->miso_pin, GPI, GPIO_HIGH, GPI_FLOATING_IN);     // IO åˆå§‹åŒ–
     }
     if(SOFT_SPI_PIN_NULL == cs_pin)
     {
@@ -565,7 +565,7 @@ void soft_spi_init (soft_spi_info_struct *soft_spi_obj, uint8 mode, uint32 delay
     {
         soft_spi_obj->config.use_cs = 1;
         soft_spi_obj->cs_pin = (gpio_pin_enum)cs_pin;
-        gpio_init(soft_spi_obj->cs_pin, GPO, GPIO_HIGH, GPO_PUSH_PULL);         // IO ³õÊ¼»¯
+        gpio_init(soft_spi_obj->cs_pin, GPO, GPIO_HIGH, GPO_PUSH_PULL);         // IO åˆå§‹åŒ–
     }
 }
 
